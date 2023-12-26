@@ -11,7 +11,6 @@
 #include "base/memory/ref_counted.h"
 #include "base/memory/weak_ptr.h"
 #include "base/observer_list.h"
-#include "base/supports_user_data.h"
 #include "components/autofill/core/browser/data_model/autofill_profile.h"
 #include "components/autofill/core/browser/webdata/autofill_change.h"
 #include "components/autofill/core/common/form_field_data.h"
@@ -25,6 +24,7 @@ class WebDatabaseService;
 
 namespace base {
 class SequencedTaskRunner;
+class SupportsUserData;
 }
 
 namespace autofill {

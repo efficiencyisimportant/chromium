@@ -9,7 +9,6 @@
 #include <utility>
 
 #include "base/memory/raw_ptr.h"
-#include "base/supports_user_data.h"
 #include "content/common/content_export.h"
 #include "content/public/browser/web_ui_controller.h"
 #include "content/public/browser/web_ui_managed_interface.h"

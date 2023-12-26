@@ -10,7 +10,6 @@
 #include "base/containers/enum_set.h"
 #include "base/files/file_path.h"
 #include "base/functional/callback.h"
-#include "base/supports_user_data.h"
 #include "build/build_config.h"
 #include "build/chromeos_buildflags.h"
 #include "components/policy/core/browser/signin/profile_separation_policies.h"
