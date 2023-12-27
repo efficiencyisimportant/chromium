@@ -1,21 +1,21 @@
 # ![Logo](chrome/app/theme/chromium/product_logo_64.png) Chromium
 
-Chromium is an open-source browser project that aims to build a safer, faster,
+> Chromium is an open-source browser project that aims to build a safer, faster,
 and more stable way for all users to experience the web.
+(Source: [chromium.org](https://www.chromium.org))
 
-The project's web site is https://www.chromium.org.
+Here you can find some of my related work. Feel free to use it.
 
-To check out the source code locally, don't use `git clone`! Instead,
-follow [the instructions on how to get the code](docs/get_the_code.md).
+# Removing extra includes
+## Trivial cases
+I use the following tool: https://source.chromium.org/chromium/chromium/src/+/HEAD:tools/clang/scripts/analyze_includes.py  
+Google data: https://commondatastorage.googleapis.com/chromium-browser-clang/include-analysis.html  
+Each of the following branches (plus main) contains its own up-to-date data in **.eii/** directory.
+### Active
+* Removing extra <map> include in base/supports_user_data.h: [branch](https://github.com/efficiencyisimportant/chromium/tree/remove_map_include_in_base_supports_user_data.h)  
+  Basically it has nearly zero impact: total build size 372,212,777,233 bytes -> 372,212,712,598 bytes, "Per-File Analysis" table is pretty the same.  
+  Just to get things in order.
+* Remove extra includes of base/supports_user_data.h: [branch](https://github.com/efficiencyisimportant/chromium/tree/remove_extra_includes_base_supports_user_data.h)  
+  Total build size: 372,212,777,233 bytes -> 372,122,223,975 bytes (-0.02%)  
+  Probably that's all trivial changes we can make to base/supports_user_data.h
 
-Documentation in the source is rooted in [docs/README.md](docs/README.md).
-
-Learn how to [Get Around the Chromium Source Code Directory
-Structure](https://www.chromium.org/developers/how-tos/getting-around-the-chrome-source-code).
-
-For historical reasons, there are some small top level directories. Now the
-guidance is that new top level directories are for product (e.g. Chrome,
-Android WebView, Ash). Even if these products have multiple executables, the
-code should be in subdirectories of the product.
-
-If you found a bug, please file it at https://crbug.com/new.
