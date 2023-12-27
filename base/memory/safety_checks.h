@@ -14,6 +14,7 @@
 #include "base/dcheck_is_on.h"
 
 #if BUILDFLAG(USE_PARTITION_ALLOC_AS_MALLOC)
+#include "base/allocator/partition_allocator/src/partition_alloc/partition_root.h"
 #include "base/allocator/partition_allocator/src/partition_alloc/shim/allocator_shim_default_dispatch_to_partition_alloc.h"
 #endif  // BUILDFLAG(USE_PARTITION_ALLOC_AS_MALLOC)
 
