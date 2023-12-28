@@ -33,6 +33,7 @@
 #include "content/browser/interest_group/subresource_url_builder.h"
 #include "content/browser/renderer_host/frame_tree_node.h"
 #include "content/browser/renderer_host/render_frame_host_impl.h"
+#include "content/browser/storage_partition_impl.h"
 #include "content/common/content_export.h"
 #include "content/services/auction_worklet/public/mojom/auction_network_events_handler.mojom-forward.h"
 #include "content/services/auction_worklet/public/mojom/auction_shared_storage_host.mojom.h"

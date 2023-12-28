@@ -9,6 +9,7 @@
 #include "content/browser/file_system_access/file_system_access_manager_impl.h"
 #include "content/browser/network/cross_origin_embedder_policy_reporter.h"
 #include "content/browser/renderer_host/render_frame_host_impl.h"
+#include "content/browser/storage_partition_impl.h"
 #include "content/public/browser/permission_controller.h"
 #include "storage/browser/quota/quota_manager_proxy.h"
 #include "third_party/blink/public/common/permissions/permission_utils.h"
@@ -95,7 +96,7 @@ void StorageAccessHandle::BindCaches(
 
 void StorageAccessHandle::GetDirectory(GetDirectoryCallback callback) {
   static_cast<RenderFrameHostImpl&>(render_frame_host())
-      .GetStoragePartition()
+      .GetStoragePartitionImpl()
       ->GetFileSystemAccessManager()
       ->GetSandboxedFileSystem(
           FileSystemAccessManagerImpl::BindingContext(
@@ -108,7 +109,7 @@ void StorageAccessHandle::GetDirectory(GetDirectoryCallback callback) {
 
 void StorageAccessHandle::Estimate(EstimateCallback callback) {
   static_cast<RenderFrameHostImpl&>(render_frame_host())
-      .GetStoragePartition()
+      .GetStoragePartitionImpl()
       ->GetQuotaManagerProxy()
       ->GetBucketsForStorageKey(
           blink::StorageKey::CreateFirstParty(
@@ -140,7 +141,7 @@ void StorageAccessHandle::EstimateImpl(
     return;
   }
   static_cast<RenderFrameHostImpl&>(render_frame_host())
-      .GetStoragePartition()
+      .GetStoragePartitionImpl()
       ->GetQuotaManagerProxy()
       ->GetBucketUsageAndQuota(
           bucket_info.id, base::SequencedTaskRunner::GetCurrentDefault(),
@@ -151,7 +152,7 @@ void StorageAccessHandle::EstimateImpl(
 void StorageAccessHandle::BindBlobStorage(
     mojo::PendingAssociatedReceiver<blink::mojom::BlobURLStore> receiver) {
   static_cast<RenderFrameHostImpl&>(render_frame_host())
-      .GetStoragePartition()
+      .GetStoragePartitionImpl()
       ->GetBlobUrlRegistry()
       ->AddReceiver(blink::StorageKey::CreateFirstParty(
                         render_frame_host().GetStorageKey().origin()),
@@ -163,7 +164,7 @@ void StorageAccessHandle::BindBroadcastChannel(
         receiver) {
   BroadcastChannelService* service =
       static_cast<RenderFrameHostImpl&>(render_frame_host())
-          .GetStoragePartition()
+          .GetStoragePartitionImpl()
           ->GetBroadcastChannelService();
   service->AddAssociatedReceiver(
       std::make_unique<BroadcastChannelProvider>(

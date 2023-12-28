@@ -1907,7 +1907,7 @@ RenderFrameHostImpl::~RenderFrameHostImpl() {
     owned_render_widget_host_->ShutdownAndDestroyWidget(false);
 
   ResourceCacheManager* resource_cache_manager =
-      GetStoragePartition()->GetResourceCacheManager();
+      GetStoragePartitionImpl()->GetResourceCacheManager();
   if (resource_cache_manager) {
     resource_cache_manager->RenderFrameHostBecameIneligible(*this);
   }
@@ -5771,7 +5771,7 @@ void RenderFrameHostImpl::MaybeStartOutermostMainFrameNavigation(
   }
 
   ServiceWorkerContextWrapper* context =
-      GetStoragePartition()->GetServiceWorkerContext();
+      GetStoragePartitionImpl()->GetServiceWorkerContext();
 
   if (!context) {
     return;
@@ -6273,7 +6273,7 @@ RenderFrameHostImpl::GetFrameTypeProto() const {
   return RFHProto::UNSPECIFIED_FRAME_TYPE;
 }
 
-StoragePartitionImpl* RenderFrameHostImpl::GetStoragePartition() {
+StoragePartitionImpl* RenderFrameHostImpl::GetStoragePartitionImpl() {
   // Both RenderProcessHostImpl and MockRenderProcessHost obtain the
   // StoragePartition instance through BrowserContext::GetStoragePartition()
   // call. That method does not support creating TestStoragePartition
@@ -6281,6 +6281,10 @@ StoragePartitionImpl* RenderFrameHostImpl::GetStoragePartition() {
   // safe to static cast the result here.
   return static_cast<StoragePartitionImpl*>(
       GetProcess()->GetStoragePartition());
+}
+
+StoragePartition* RenderFrameHostImpl::GetStoragePartition() {
+  return GetStoragePartitionImpl();
 }
 
 void RenderFrameHostImpl::RequestTextSurroundingSelection(
@@ -10394,7 +10398,7 @@ void RenderFrameHostImpl::CommitNavigation(
     }
 #endif
 
-    auto* partition = GetStoragePartition();
+    auto* partition = GetStoragePartitionImpl();
     non_network_factories.emplace(
         url::kFileSystemScheme,
         CreateFileSystemURLLoaderFactory(
@@ -10523,7 +10527,7 @@ void RenderFrameHostImpl::CommitNavigation(
       // have non-racy situation (https://crbug.com/849929).
       base::WeakPtr<SubresourceProxyingURLLoaderService::BindContext>
           bind_context =
-              GetStoragePartition()
+              GetStoragePartitionImpl()
                   ->GetSubresourceProxyingURLLoaderService()
                   ->GetFactory(subresource_proxying_loader_factory_for_renderer
                                    .InitWithNewPipeAndPassReceiver(),
@@ -10557,10 +10561,12 @@ void RenderFrameHostImpl::CommitNavigation(
       // Set up URLLoaderFactory for keepalive using the same loader factories
       // `subresource_proxying_factory_bundle`.
       base::WeakPtr<KeepAliveURLLoaderService::FactoryContext> context =
-          GetStoragePartition()->GetKeepAliveURLLoaderService()->BindFactory(
-              keep_alive_loader_factory.InitWithNewPipeAndPassReceiver(),
-              subresource_proxying_factory_bundle,
-              navigation_request->GetPolicyContainerHost());
+          GetStoragePartitionImpl()
+              ->GetKeepAliveURLLoaderService()
+              ->BindFactory(
+                  keep_alive_loader_factory.InitWithNewPipeAndPassReceiver(),
+                  subresource_proxying_factory_bundle,
+                  navigation_request->GetPolicyContainerHost());
       navigation_request->set_keep_alive_url_loader_factory_context(context);
     }
     // Set up the fetchlater loader factory. It is used to proxy FetchLater
@@ -10572,7 +10578,7 @@ void RenderFrameHostImpl::CommitNavigation(
     if (subresource_proxying_factory_bundle &&
         base::FeatureList::IsEnabled(blink::features::kFetchLaterAPI)) {
       base::WeakPtr<KeepAliveURLLoaderService::FactoryContext> context =
-          GetStoragePartition()
+          GetStoragePartitionImpl()
               ->GetKeepAliveURLLoaderService()
               ->BindFetchLaterLoaderFactory(
                   fetch_later_loader_factory
@@ -12131,7 +12137,7 @@ void RenderFrameHostImpl::BindRestrictedCookieManagerWithOrigin(
   // CookieSettingOverrides is passesd in instead of calling
   // GetCookieSettingOverrides, because this call can happen before the frame
   // is committed.
-  GetStoragePartition()->CreateRestrictedCookieManager(
+  GetStoragePartitionImpl()->CreateRestrictedCookieManager(
       network::mojom::RestrictedCookieManagerRole::SCRIPT, origin,
       isolation_info,
       /*is_service_worker=*/false, GetProcess()->GetID(), GetRoutingID(),
@@ -12223,14 +12229,14 @@ void RenderFrameHostImpl::GetManagedConfigurationService(
 
 void RenderFrameHostImpl::GetFontAccessManager(
     mojo::PendingReceiver<blink::mojom::FontAccessManager> receiver) {
-  GetStoragePartition()->GetFontAccessManager()->BindReceiver(
+  GetStoragePartitionImpl()->GetFontAccessManager()->BindReceiver(
       GetGlobalId(), std::move(receiver));
 }
 
 void RenderFrameHostImpl::GetFileSystemAccessManager(
     mojo::PendingReceiver<blink::mojom::FileSystemAccessManager> receiver) {
   DCHECK_CURRENTLY_ON(BrowserThread::UI);
-  auto* manager = GetStoragePartition()->GetFileSystemAccessManager();
+  auto* manager = GetStoragePartitionImpl()->GetFileSystemAccessManager();
   manager->BindReceiver(
       FileSystemAccessManagerImpl::BindingContext(
           GetStorageKey(), GetLastCommittedURL(), GetGlobalId()),
@@ -12275,7 +12281,8 @@ void RenderFrameHostImpl::GetPushMessaging(
     auto* rph = GetProcess();
     push_messaging_manager_ = std::make_unique<PushMessagingManager>(
         *rph, routing_id_,
-        base::WrapRefCounted(GetStoragePartition()->GetServiceWorkerContext()));
+        base::WrapRefCounted(
+            GetStoragePartitionImpl()->GetServiceWorkerContext()));
   }
 
   push_messaging_manager_->AddPushMessagingReceiver(std::move(receiver));
@@ -13779,7 +13786,7 @@ void RenderFrameHostImpl::SendCommitNavigation(
     if (!RenderProcessHostImpl::HasDomStorageBinderForTesting()) {
       storage_info = mojom::StorageInfo::New();
       // Bind local storage and session storage areas.
-      auto* partition = GetStoragePartition();
+      auto* partition = GetStoragePartitionImpl();
       int process_id = GetProcess()->GetID();
       partition->OpenLocalStorageForProcess(
           process_id, commit_params->storage_key,
@@ -15965,10 +15972,12 @@ void RenderFrameHostImpl::BindCacheStorageForBucket(
 void RenderFrameHostImpl::GetSandboxedFileSystemForBucket(
     const storage::BucketInfo& bucket,
     blink::mojom::BucketHost::GetDirectoryCallback callback) {
-  GetStoragePartition()->GetFileSystemAccessManager()->GetSandboxedFileSystem(
-      FileSystemAccessManagerImpl::BindingContext(
-          GetStorageKey(), GetLastCommittedURL(), GetGlobalId()),
-      bucket.ToBucketLocator(), std::move(callback));
+  GetStoragePartitionImpl()
+      ->GetFileSystemAccessManager()
+      ->GetSandboxedFileSystem(
+          FileSystemAccessManagerImpl::BindingContext(
+              GetStorageKey(), GetLastCommittedURL(), GetGlobalId()),
+          bucket.ToBucketLocator(), std::move(callback));
 }
 
 GlobalRenderFrameHostId RenderFrameHostImpl::GetAssociatedRenderFrameHostId()

@@ -5,6 +5,7 @@
 #include "content/browser/quota/quota_internals_ui.h"
 
 #include "content/browser/renderer_host/render_frame_host_impl.h"
+#include "content/browser/storage_partition_impl.h"
 #include "content/browser/webui/web_ui_impl.h"
 #include "content/grit/quota_internals_resources.h"
 #include "content/grit/quota_internals_resources_map.h"

@@ -333,7 +333,7 @@ void BindColorChooserFactoryForFrame(
 void BindQuotaManagerHost(
     RenderFrameHostImpl* host,
     mojo::PendingReceiver<blink::mojom::QuotaManagerHost> receiver) {
-  host->GetStoragePartition()->GetQuotaContext()->BindQuotaManagerHost(
+  host->GetStoragePartitionImpl()->GetQuotaContext()->BindQuotaManagerHost(
       host->GetStorageKey(), std::move(receiver));
 }
 
