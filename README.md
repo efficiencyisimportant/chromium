@@ -18,4 +18,6 @@ Each of the following branches (plus main) contains its own up-to-date data in *
 * Remove extra includes of base/supports_user_data.h: [branch](https://github.com/efficiencyisimportant/chromium/tree/remove_extra_includes_base_supports_user_data.h)  
   Total build size: 372,212,777,233 bytes -> 372,122,223,975 bytes (-0.02%)  
   Probably that's all trivial changes we can make to base/supports_user_data.h
+* Remove an extra include of partition_alloc/partition_alloc.h: [branch](https://github.com/efficiencyisimportant/chromium/tree/remove_extra_partition_alloc.h_include)  
+  Insignificant impact on total build size: 372,212,777,233 bytes -> 372,198,958,977 bytes (-0.004%). But meaningful impact for the top 1000 in sum both for "Per-File Analysis" and for "Per-Edge Analysis" (0.5% and 1.3% respectively).
 
