@@ -20,4 +20,7 @@ Each of the following branches (plus main) contains its own up-to-date data in *
   Probably that's all trivial changes we can make to base/supports_user_data.h
 * Remove an extra include of partition_alloc/partition_alloc.h: [branch](https://github.com/efficiencyisimportant/chromium/tree/remove_extra_partition_alloc.h_include)  
   Insignificant impact on total build size: 372,212,777,233 bytes -> 372,198,958,977 bytes (-0.004%). But meaningful impact for the top 1000 in sum both for "Per-File Analysis" and for "Per-Edge Analysis" (0.5% and 1.3% respectively).
+* Remove storage_partition extra includes from render_frame_host_impl.h: [branch](https://github.com/efficiencyisimportant/chromium/tree/remove_storage_partition_extra_includes_in_render_frame_host_impl.h)  
+  Total build size: 372,212,777,233 bytes -> 371,114,071,734 bytes (-0.3%).  
+  render_frame_host_impl.h moved from 20th place to 53rd.
 
