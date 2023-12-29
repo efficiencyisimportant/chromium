@@ -37,7 +37,6 @@
 #include "components/security_state/core/security_state.h"
 #include "components/translate/core/browser/language_state.h"
 #include "services/metrics/public/cpp/ukm_source_id.h"
-#include "services/network/public/cpp/shared_url_loader_factory.h"
 #include "ui/base/window_open_disposition.h"
 #include "ui/gfx/geometry/rect_f.h"
 #include "ui/gfx/image/image.h"
@@ -45,6 +44,10 @@
 #include "url/origin.h"
 
 class PrefService;
+
+namespace network {
+class SharedURLLoaderFactory;
+}
 
 namespace plus_addresses {
 class PlusAddressService;
