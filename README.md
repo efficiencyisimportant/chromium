@@ -23,4 +23,6 @@ Each of the following branches (plus main) contains its own up-to-date data in *
 * Remove storage_partition extra includes from render_frame_host_impl.h: [branch](https://github.com/efficiencyisimportant/chromium/tree/remove_storage_partition_extra_includes_in_render_frame_host_impl.h)  
   Total build size: 372,212,777,233 bytes -> 371,114,071,734 bytes (-0.3%).  
   render_frame_host_impl.h moved from 20th place to 53rd.
+* Remove render_widget_host_impl.h extra include from render_frame_host_impl.h: [branch](https://github.com/efficiencyisimportant/chromium/tree/remove_extra_render_widget_host_impl.h_include)  
+  Total build size: 372,212,777,233 bytes -> 372,029,028,215 bytes (-0.05%)
 
