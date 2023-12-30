@@ -10,7 +10,6 @@
 #include "base/auto_reset.h"
 #include "base/base_export.h"
 #include "base/functional/callback.h"
-#include "base/task/delay_policy.h"
 #include "base/task/delayed_task_handle.h"
 #include "base/task/sequenced_task_runner_helpers.h"
 #include "base/task/task_runner.h"
@@ -44,6 +43,8 @@ class TimeDelta;
 class TimeTicks;
 
 namespace subtle {
+
+enum class DelayPolicy;
 
 // Restricts access to PostCancelableDelayedTask*() to authorized callers.
 class PostDelayedTaskPassKey {
