@@ -496,7 +496,7 @@ bool RenderViewHostImpl::CreateRenderView(
     }
 
     local_frame_params->widget_params =
-        main_rfh->GetRenderWidgetHost()
+        main_rfh->GetRenderWidgetHostImpl()
             ->BindAndGenerateCreateFrameWidgetParams();
 
     local_frame_params->subresource_loader_factories =

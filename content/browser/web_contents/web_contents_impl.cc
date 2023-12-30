@@ -3824,7 +3824,7 @@ RenderWidgetHostImpl* WebContentsImpl::GetRenderWidgetHostWithPageFocus() {
   FrameTree* focused_frame_tree = GetFocusedFrameTree();
   return focused_frame_tree->root()
       ->current_frame_host()
-      ->GetRenderWidgetHost();
+      ->GetRenderWidgetHostImpl();
 }
 
 bool WebContentsImpl::CanEnterFullscreenMode(
@@ -5073,7 +5073,7 @@ void WebContentsImpl::SendScreenRects() {
   GetPrimaryMainFrame()->ForEachRenderFrameHost(
       [](RenderFrameHostImpl* render_frame_host) {
         if (render_frame_host->is_local_root()) {
-          render_frame_host->GetRenderWidgetHost()->SendScreenRects();
+          render_frame_host->GetRenderWidgetHostImpl()->SendScreenRects();
         }
       });
 }
@@ -7557,7 +7557,7 @@ void WebContentsImpl::RunJavaScriptDialog(
   // the contents of the previous page aren't shown behind it. This is required
   // because showing a dialog freezes the renderer, so no frames will be coming
   // from it. https://crbug.com/823353
-  auto* render_widget_host_impl = render_frame_host->GetRenderWidgetHost();
+  auto* render_widget_host_impl = render_frame_host->GetRenderWidgetHostImpl();
   if (render_widget_host_impl) {
     render_widget_host_impl->ForceFirstFrameAfterNavigationTimeout();
   }
@@ -7668,7 +7668,7 @@ void WebContentsImpl::RunBeforeUnloadConfirm(
   // the contents of the previous page aren't shown behind it. This is required
   // because showing a dialog freezes the renderer, so no frames will be coming
   // from it. https://crbug.com/823353
-  auto* render_widget_host_impl = render_frame_host->GetRenderWidgetHost();
+  auto* render_widget_host_impl = render_frame_host->GetRenderWidgetHostImpl();
   if (render_widget_host_impl) {
     render_widget_host_impl->ForceFirstFrameAfterNavigationTimeout();
   }
@@ -8515,7 +8515,7 @@ void WebContentsImpl::SetFocusedFrameTree(FrameTree* frame_tree_to_focus) {
   if (old_focused_frame_tree) {
     old_focused_frame_tree->root()
         ->current_frame_host()
-        ->GetRenderWidgetHost()
+        ->GetRenderWidgetHostImpl()
         ->SetPageFocus(false);
   }
 
@@ -8530,7 +8530,7 @@ void WebContentsImpl::SetFocusedFrameTree(FrameTree* frame_tree_to_focus) {
 
   frame_tree_to_focus->root()
       ->current_frame_host()
-      ->GetRenderWidgetHost()
+      ->GetRenderWidgetHostImpl()
       ->SetPageFocus(true);
 }
 
@@ -8732,7 +8732,7 @@ void WebContentsImpl::FocusOwningWebContents(
   OPTIONAL_TRACE_EVENT1("content", "WebContentsImpl::FocusOwningWebContents",
                         "render_widget_host", render_widget_host);
   RenderWidgetHostImpl* main_frame_widget_host =
-      GetPrimaryMainFrame()->GetRenderWidgetHost();
+      GetPrimaryMainFrame()->GetRenderWidgetHostImpl();
   RenderWidgetHostImpl* focused_widget =
       GetFocusedRenderWidgetHost(main_frame_widget_host);
 
@@ -10098,8 +10098,8 @@ const ui::ColorProvider& WebContentsImpl::GetColorProvider() const {
 
 blink::mojom::FrameWidgetInputHandler*
 WebContentsImpl::GetFocusedFrameWidgetInputHandler() {
-  auto* focused_render_widget_host =
-      GetFocusedRenderWidgetHost(GetPrimaryMainFrame()->GetRenderWidgetHost());
+  auto* focused_render_widget_host = GetFocusedRenderWidgetHost(
+      GetPrimaryMainFrame()->GetRenderWidgetHostImpl());
   if (!focused_render_widget_host) {
     return nullptr;
   }
@@ -10410,7 +10410,7 @@ void WebContentsImpl::AboutToBeDiscarded(WebContents* new_contents) {
 base::ScopedClosureRunner WebContentsImpl::CreateDisallowCustomCursorScope(
     int max_dimension_dips) {
   auto* render_widget_host_base = GetPrimaryMainFrame()
-                                      ->GetRenderWidgetHost()
+                                      ->GetRenderWidgetHostImpl()
                                       ->GetRenderWidgetHostViewBase();
 
   // It's possible for |render_widget_host_base| to be null if the renderer

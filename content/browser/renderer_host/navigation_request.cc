@@ -7835,7 +7835,7 @@ void NavigationRequest::RenderProcessBlockedStateChanged(bool blocked) {
 void NavigationRequest::StopCommitTimeout() {
   commit_timeout_timer_.Stop();
   render_process_blocked_state_changed_subscription_ = {};
-  GetRenderFrameHost()->GetRenderWidgetHost()->RendererIsResponsive();
+  GetRenderFrameHost()->GetRenderWidgetHostImpl()->RendererIsResponsive();
 }
 
 void NavigationRequest::RestartCommitTimeout() {
@@ -7862,7 +7862,7 @@ void NavigationRequest::RestartCommitTimeout() {
 void NavigationRequest::OnCommitTimeout() {
   DCHECK_EQ(READY_TO_COMMIT, state_);
   render_process_blocked_state_changed_subscription_ = {};
-  GetRenderFrameHost()->GetRenderWidgetHost()->RendererIsUnresponsive(
+  GetRenderFrameHost()->GetRenderWidgetHostImpl()->RendererIsUnresponsive(
       base::BindRepeating(&NavigationRequest::RestartCommitTimeout,
                           weak_factory_.GetWeakPtr()));
 }

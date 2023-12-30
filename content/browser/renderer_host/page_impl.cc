@@ -141,8 +141,9 @@ void PageImpl::DidChangeBackgroundColor(SkColor4f background_color,
     // previous page while rendering is blocked in the new page, but for cross
     // process navigations we would paint the default background (typically
     // white) while the rendering is blocked.
-    main_document_->GetRenderWidgetHost()->GetView()->SetContentBackgroundColor(
-        background_color.toSkColor());
+    main_document_->GetRenderWidgetHostImpl()
+        ->GetView()
+        ->SetContentBackgroundColor(background_color.toSkColor());
   }
 }
 
@@ -326,7 +327,7 @@ void PageImpl::UpdateBrowserControlsState(cc::BrowserControlsState constraints,
 
   if (base::FeatureList::IsEnabled(
           features::kUpdateBrowserControlsWithoutProxy)) {
-    GetMainDocument().GetRenderWidgetHost()->UpdateBrowserControlsState(
+    GetMainDocument().GetRenderWidgetHostImpl()->UpdateBrowserControlsState(
         constraints, current, animate);
   } else {
     GetMainDocument().GetAssociatedLocalMainFrame()->UpdateBrowserControlsState(
@@ -367,7 +368,7 @@ void PageImpl::SetVirtualKeyboardMode(ui::mojom::VirtualKeyboardMode mode) {
 }
 
 base::flat_map<std::string, std::string> PageImpl::GetKeyboardLayoutMap() {
-  return GetMainDocument().GetRenderWidgetHost()->GetKeyboardLayoutMap();
+  return GetMainDocument().GetRenderWidgetHostImpl()->GetKeyboardLayoutMap();
 }
 
 bool PageImpl::CheckAndMaybeDebitSelectURLBudgets(

@@ -318,7 +318,7 @@ void RestoreBrowserControlsState(RenderFrameHostImpl* cached_rfh) {
 
   DCHECK_NE(current_rfh, cached_rfh);
 
-  float prev_top_controls_shown_ratio = current_rfh->GetRenderWidgetHost()
+  float prev_top_controls_shown_ratio = current_rfh->GetRenderWidgetHostImpl()
                                             ->render_frame_metadata_provider()
                                             ->LastRenderFrameMetadata()
                                             .top_controls_shown_ratio;
@@ -340,10 +340,11 @@ void RequestRecordTimeToVisible(RenderFrameHostImpl* rfh,
   // cases like page navigating back with window.history.back(), while being
   // hidden.
   if (rfh->delegate()->GetVisibility() != Visibility::HIDDEN) {
-    rfh->GetRenderWidgetHost()->GetVisibleTimeRequestTrigger().UpdateRequest(
-        navigation_start, /*destination_is_loaded=*/false,
-        /*show_reason_tab_switching=*/false,
-        /*show_reason_bfcache_restore=*/true);
+    rfh->GetRenderWidgetHostImpl()
+        ->GetVisibleTimeRequestTrigger()
+        .UpdateRequest(navigation_start, /*destination_is_loaded=*/false,
+                       /*show_reason_tab_switching=*/false,
+                       /*show_reason_bfcache_restore=*/true);
   }
 }
 

@@ -95,7 +95,7 @@ void KeyboardLockServiceImpl::RequestKeyboardLock(
   // then exit without enabling keyboard lock.  Also cancel any previous
   // keyboard lock request since the most recent request failed.
   if (invalid_key_code_found) {
-    frame_host_impl.GetRenderWidgetHost()->CancelKeyboardLock();
+    frame_host_impl.GetRenderWidgetHostImpl()->CancelKeyboardLock();
     std::move(callback).Run(KeyboardLockRequestResult::kNoValidKeyCodesError);
     return;
   }
@@ -104,7 +104,7 @@ void KeyboardLockServiceImpl::RequestKeyboardLock(
   if (!dom_codes.empty())
     dom_code_set = std::move(dom_codes);
 
-  if (frame_host_impl.GetRenderWidgetHost()->RequestKeyboardLock(
+  if (frame_host_impl.GetRenderWidgetHostImpl()->RequestKeyboardLock(
           std::move(dom_code_set))) {
     std::move(callback).Run(KeyboardLockRequestResult::kSuccess);
     feature_handle_ =
@@ -120,7 +120,7 @@ void KeyboardLockServiceImpl::CancelKeyboardLock() {
   LogKeyboardLockMethodCalled(KeyboardLockMethods::kCancelLock);
   auto& frame_host_impl =
       static_cast<RenderFrameHostImpl&>(render_frame_host());
-  frame_host_impl.GetRenderWidgetHost()->CancelKeyboardLock();
+  frame_host_impl.GetRenderWidgetHostImpl()->CancelKeyboardLock();
   feature_handle_.reset();
 }
 

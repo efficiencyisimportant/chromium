@@ -271,12 +271,12 @@ void PageHandler::SetRenderer(int process_host_id,
     return;
 
   RenderWidgetHostImpl* widget_host =
-      host_ ? host_->GetRenderWidgetHost() : nullptr;
+      host_ ? host_->GetRenderWidgetHostImpl() : nullptr;
   if (widget_host && observation_.IsObservingSource(widget_host))
     observation_.Reset();
 
   host_ = frame_host;
-  widget_host = host_ ? host_->GetRenderWidgetHost() : nullptr;
+  widget_host = host_ ? host_->GetRenderWidgetHostImpl() : nullptr;
 
   if (widget_host)
     observation_.Observe(widget_host);
@@ -869,7 +869,7 @@ void PageHandler::CaptureScreenshot(
     }
   }
 
-  RenderWidgetHostImpl* widget_host = host_->GetRenderWidgetHost();
+  RenderWidgetHostImpl* widget_host = host_->GetRenderWidgetHostImpl();
   auto encoder =
       GetEncoder(format.value_or(Page::CaptureScreenshot::FormatEnum::Png),
                  quality.value_or(kDefaultScreenshotQuality),
@@ -1020,7 +1020,7 @@ Response PageHandler::StartScreencast(Maybe<std::string> format,
   Response response = AssureTopLevelActiveFrame();
   if (response.IsError())
     return response;
-  RenderWidgetHostImpl* widget_host = host_->GetRenderWidgetHost();
+  RenderWidgetHostImpl* widget_host = host_->GetRenderWidgetHostImpl();
   if (!widget_host)
     return Response::InternalError();
 
@@ -1245,7 +1245,7 @@ void PageHandler::ScreenshotCaptured(
         maybe_original_web_prefs,
     const gfx::Image& image) {
   if (original_view_size.width()) {
-    RenderWidgetHostImpl* widget_host = host_->GetRenderWidgetHost();
+    RenderWidgetHostImpl* widget_host = host_->GetRenderWidgetHostImpl();
     widget_host->GetView()->SetSize(original_view_size);
     emulation_handler_->SetDeviceEmulationParams(original_emulation_params);
   }

@@ -554,8 +554,11 @@ void CrossProcessFrameConnector::SetRectInParentView(
         old_rect.y() != rect_in_parent_view_in_dip_.y()) {
       for (FrameTreeNode* node :
            proxy_node->frame_tree().SubtreeNodes(proxy_node)) {
-        if (node != proxy_node && node->current_frame_host()->is_local_root())
-          node->current_frame_host()->GetRenderWidgetHost()->SendScreenRects();
+        if (node != proxy_node && node->current_frame_host()->is_local_root()) {
+          node->current_frame_host()
+              ->GetRenderWidgetHostImpl()
+              ->SendScreenRects();
+        }
       }
     }
   }

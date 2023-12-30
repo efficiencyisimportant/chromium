@@ -6,6 +6,7 @@
 
 #include "content/browser/renderer_host/frame_tree_node.h"
 #include "content/browser/renderer_host/navigation_request.h"
+#include "content/browser/renderer_host/render_widget_host_impl.h"
 
 namespace content {
 
@@ -82,7 +83,9 @@ void RendererCancellationThrottle::NavigationCancellationWindowEnded() {
   // Stop the timeout and notify that renderer is responsive if necessary.
   renderer_cancellation_timeout_timer_.Stop();
   NavigationRequest* request = NavigationRequest::From(navigation_handle());
-  request->GetRenderFrameHost()->GetRenderWidgetHost()->RendererIsResponsive();
+  request->GetRenderFrameHost()
+      ->GetRenderWidgetHostImpl()
+      ->RendererIsResponsive();
 
   Resume();
 }
@@ -98,7 +101,7 @@ void RendererCancellationThrottle::OnTimeout() {
     return;
   }
 
-  previous_rfh->GetRenderWidgetHost()->RendererIsUnresponsive(
+  previous_rfh->GetRenderWidgetHostImpl()->RendererIsUnresponsive(
       base::BindRepeating(&RendererCancellationThrottle::RestartTimeout,
                           weak_factory_.GetWeakPtr()));
 }

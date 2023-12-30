@@ -50,7 +50,7 @@ std::unique_ptr<WebContentsImpl> BrowserPluginGuest::CreateNewGuestWindow(
 
 void BrowserPluginGuest::InitInternal(WebContentsImpl* owner_web_contents) {
   RenderWidgetHostImpl* rwhi =
-      GetWebContents()->GetPrimaryMainFrame()->GetRenderWidgetHost();
+      GetWebContents()->GetPrimaryMainFrame()->GetRenderWidgetHostImpl();
   DCHECK(rwhi);
   // The initial state will not be focused but the plugin may be active so
   // set that appropriately.

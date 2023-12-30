@@ -69,6 +69,7 @@ class ServiceWorkerContextWrapper;
 class SignedExchangeEnvelope;
 class StoragePartition;
 class WebContents;
+struct DropData;
 struct PrerenderMismatchedHeaders;
 
 struct SignedExchangeError;

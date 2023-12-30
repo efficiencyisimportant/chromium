@@ -1993,8 +1993,8 @@ void RenderFrameHostImpl::DidEnterBackForwardCache() {
   // navigating away from the page.
   GetPage().CancelLoadingMemoryTracker();
 
-  CHECK(GetRenderWidgetHost());
-  CHECK(GetRenderWidgetHost()->view_is_frame_sink_id_owner());
+  CHECK(GetRenderWidgetHostImpl());
+  CHECK(GetRenderWidgetHostImpl()->view_is_frame_sink_id_owner());
 
   DidEnterBackForwardCacheInternal();
   // Pages in the back-forward cache are automatically evicted after a certain
@@ -2783,8 +2783,8 @@ PageVisibilityState RenderFrameHostImpl::GetVisibilityState() {
     return PageVisibilityState::kHidden;
   }
 
-  return GetRenderWidgetHost()->is_hidden() ? PageVisibilityState::kHidden
-                                            : PageVisibilityState::kVisible;
+  return GetRenderWidgetHostImpl()->is_hidden() ? PageVisibilityState::kHidden
+                                                : PageVisibilityState::kVisible;
 }
 
 bool RenderFrameHostImpl::Send(IPC::Message* message) {
@@ -4679,7 +4679,7 @@ bool RenderFrameHostImpl::TakingFocusWillCrossFencedBoundary(
 bool RenderFrameHostImpl::VerifyFencedFrameFocusChange(
     RenderFrameHostImpl* focused_rfh) {
   if (GetOutermostMainFrameOrEmbedder()
-          ->GetRenderWidgetHost()
+          ->GetRenderWidgetHostImpl()
           ->HasLostFocus()) {
     ActivateFocusSourceUserActivation();
     return true;
@@ -4741,7 +4741,9 @@ void RenderFrameHostImpl::DidFocusFrame() {
 #endif  // BUILDFLAG(IS_WIN)
 
   // The lost focus tracker is cleared out after a focus call.
-  GetOutermostMainFrameOrEmbedder()->GetRenderWidgetHost()->ResetLostFocus();
+  GetOutermostMainFrameOrEmbedder()
+      ->GetRenderWidgetHostImpl()
+      ->ResetLostFocus();
 }
 
 void RenderFrameHostImpl::DidCallFocus() {
@@ -5056,7 +5058,11 @@ void RenderFrameHostImpl::DidOpenDocumentInputStream(const GURL& url) {
   DidOpenDocumentInputStream();
 }
 
-RenderWidgetHostImpl* RenderFrameHostImpl::GetRenderWidgetHost() {
+RenderWidgetHost* RenderFrameHostImpl::GetRenderWidgetHost() {
+  return GetRenderWidgetHostImpl();
+}
+
+RenderWidgetHostImpl* RenderFrameHostImpl::GetRenderWidgetHostImpl() {
   RenderFrameHostImpl* frame = this;
   while (frame) {
     if (frame->GetLocalRenderWidgetHost())
@@ -7568,7 +7574,7 @@ void RenderFrameHostImpl::TextSelectionChanged(const std::u16string& text,
                                                const gfx::Range& range) {
   RecordAction(base::UserMetricsAction("TextSelectionChanged"));
   has_selection_ = !text.empty();
-  GetRenderWidgetHost()->SelectionChanged(text, offset, range);
+  GetRenderWidgetHostImpl()->SelectionChanged(text, offset, range);
 }
 
 void RenderFrameHostImpl::DidReceiveUserActivation() {
@@ -8973,7 +8979,7 @@ void RenderFrameHostImpl::StartDragging(
     const gfx::Vector2d& cursor_offset_in_dip,
     const gfx::Rect& drag_obj_rect_in_dip,
     blink::mojom::DragEventSourceInfoPtr event_info) {
-  GetRenderWidgetHost()->StartDragging(
+  GetRenderWidgetHostImpl()->StartDragging(
       std::move(drag_data), GetLastCommittedOrigin(), drag_operations_mask,
       unsafe_bitmap, cursor_offset_in_dip, drag_obj_rect_in_dip,
       std::move(event_info));
@@ -10830,7 +10836,7 @@ void RenderFrameHostImpl::BindBlobUrlStoreReceiver(
 }
 
 bool RenderFrameHostImpl::IsFocused() {
-  if (!GetMainFrame()->GetRenderWidgetHost()->is_focused() ||
+  if (!GetMainFrame()->GetRenderWidgetHostImpl()->is_focused() ||
       !frame_tree_->GetFocusedFrame())
     return false;
 

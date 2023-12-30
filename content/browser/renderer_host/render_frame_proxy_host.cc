@@ -588,7 +588,7 @@ void RenderFrameProxyHost::RouteMessageEvent(
         }
       }
       if (target_is_descendant_of_source) {
-        target_rfh->GetRenderWidgetHost()
+        target_rfh->GetRenderWidgetHostImpl()
             ->SynchronizeVisualPropertiesIgnoringPendingAck();
       }
 

@@ -65,7 +65,6 @@
 #include "content/browser/renderer_host/page_impl.h"
 #include "content/browser/renderer_host/pending_beacon_host.h"
 #include "content/browser/renderer_host/policy_container_host.h"
-#include "content/browser/renderer_host/render_widget_host_impl.h"
 #include "content/browser/renderer_host/transient_allow_popup.h"
 #include "content/browser/renderer_host/transient_focus_source_user_activation.h"
 #include "content/browser/site_instance_group.h"
@@ -284,6 +283,7 @@ class RenderFrameHostOwner;
 class RenderFrameProxyHost;
 class RenderProcessHost;
 class RenderViewHostImpl;
+class RenderWidgetHostImpl;
 class RenderWidgetHostView;
 class ServiceWorkerContainerHost;
 class SiteInfo;
@@ -402,7 +402,7 @@ class CONTENT_EXPORT RenderFrameHostImpl
   RenderProcessHost* GetProcess() const override;
   GlobalRenderFrameHostId GetGlobalId() const override;
   GlobalRenderFrameHostToken GetGlobalFrameToken() const override;
-  RenderWidgetHostImpl* GetRenderWidgetHost() override;
+  RenderWidgetHost* GetRenderWidgetHost() override;
   RenderWidgetHostView* GetView() override;
   RenderFrameHostImpl* GetParent() const override;
   RenderFrameHostImpl* GetParentOrOuterDocument() const override;
@@ -538,6 +538,8 @@ class CONTENT_EXPORT RenderFrameHostImpl
   void EnableMojoJsBindings(
       content::mojom::ExtraMojoJsFeaturesPtr features) override;
   bool ShouldChangeRenderFrameHostOnSameSiteNavigation() const override;
+
+  RenderWidgetHostImpl* GetRenderWidgetHostImpl();
 
   // Additional non-override const version of GetMainFrame.
   const RenderFrameHostImpl* GetMainFrame() const;

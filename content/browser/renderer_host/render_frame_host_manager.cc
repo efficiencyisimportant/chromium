@@ -4445,9 +4445,10 @@ void RenderFrameHostManager::CommitPending(
 
   // Remember if the page was focused so we can focus the new renderer in
   // that case.
-  bool focus_render_view =
-      old_view && old_view->HasFocus() &&
-      render_frame_host_->GetMainFrame()->GetRenderWidgetHost()->is_focused();
+  bool focus_render_view = old_view && old_view->HasFocus() &&
+                           render_frame_host_->GetMainFrame()
+                               ->GetRenderWidgetHostImpl()
+                               ->is_focused();
 
   // Remove the current frame and its descendants from the set of fullscreen
   // frames immediately. They can stay in pending deletion for some time.
@@ -5151,7 +5152,7 @@ void RenderFrameHostManager::EnsureRenderFrameHostPageFocusConsistent() {
       frame_tree_node_->frame_tree()
           .root()
           ->current_frame_host()
-          ->GetRenderWidgetHost()
+          ->GetRenderWidgetHostImpl()
           ->is_focused());
 }
 

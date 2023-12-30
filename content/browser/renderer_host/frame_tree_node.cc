@@ -808,7 +808,7 @@ bool FrameTreeNode::VerifyUserActivation() {
              features::kBrowserVerifiedUserActivationKeyboard));
 
   return render_manager_.current_frame_host()
-      ->GetRenderWidgetHost()
+      ->GetRenderWidgetHostImpl()
       ->RemovePendingUserActivationIfAvailable();
 }
 

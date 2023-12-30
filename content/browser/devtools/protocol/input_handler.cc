@@ -1172,7 +1172,7 @@ void InputHandler::DispatchKeyEvent(
     return;
   }
 
-  RenderWidgetHostImpl* widget_host = host_->GetRenderWidgetHost();
+  RenderWidgetHostImpl* widget_host = host_->GetRenderWidgetHostImpl();
   if (!host_->GetParent() && widget_host->delegate()) {
     RenderWidgetHostImpl* target_host =
         widget_host->delegate()->GetFocusedRenderWidgetHost(widget_host);
@@ -1199,7 +1199,7 @@ void InputHandler::InsertText(const std::string& text,
     return;
   }
 
-  RenderWidgetHostImpl* widget_host = host_->GetRenderWidgetHost();
+  RenderWidgetHostImpl* widget_host = host_->GetRenderWidgetHostImpl();
   if (!host_->GetParent() && widget_host->delegate()) {
     RenderWidgetHostImpl* target_host =
         widget_host->delegate()->GetFocusedRenderWidgetHost(widget_host);
@@ -1242,7 +1242,7 @@ void InputHandler::ImeSetComposition(
 
   // |RenderFrameHostImpl::GetRenderWidgetHost| returns the RWHImpl of the
   // nearest local root of |host_|.
-  RenderWidgetHostImpl* widget_host = host_->GetRenderWidgetHost();
+  RenderWidgetHostImpl* widget_host = host_->GetRenderWidgetHostImpl();
   if (widget_host->delegate()) {
     RenderWidgetHostImpl* target_host =
         widget_host->delegate()->GetFocusedRenderWidgetHost(widget_host);
@@ -1317,7 +1317,7 @@ void InputHandler::HandleMouseEvent(
       event->GetType() == blink::WebInputEvent::Type::kMouseWheel;
 
   RenderWidgetHostImpl* widget_host =
-      host_ ? host_->GetRenderWidgetHost() : nullptr;
+      host_ ? host_->GetRenderWidgetHostImpl() : nullptr;
   if (!widget_host || !widget_host->delegate() ||
       !widget_host->delegate()->GetInputEventRouter() ||
       !widget_host->GetView()) {
@@ -1366,7 +1366,7 @@ void InputHandler::DispatchDragEvent(
   }
 
   RenderWidgetHostImpl* widget_host =
-      host_ ? host_->GetRenderWidgetHost() : nullptr;
+      host_ ? host_->GetRenderWidgetHostImpl() : nullptr;
   if (!widget_host || !widget_host->delegate() ||
       !widget_host->delegate()->GetInputEventRouter() ||
       !widget_host->GetView()) {
@@ -1604,7 +1604,7 @@ void InputHandler::DispatchWebTouchEvent(
   }
 
   RenderWidgetHostImpl* widget_host =
-      host_ ? host_->GetRenderWidgetHost() : nullptr;
+      host_ ? host_->GetRenderWidgetHostImpl() : nullptr;
   if (!widget_host || !widget_host->delegate() ||
       !widget_host->delegate()->GetInputEventRouter() ||
       !widget_host->GetView()) {
@@ -1945,8 +1945,9 @@ Response InputHandler::EmulateTouchFromMouseEvent(const std::string& type,
               blink::WebInputEvent::DispatchType::kEventNonBlocking;
           widget_host->ForwardWheelEvent(*event);
         },
-        weak_factory_.GetWeakPtr(), host_->GetRenderWidgetHost()->GetWeakPtr(),
-        wheel_event, std::move(event));
+        weak_factory_.GetWeakPtr(),
+        host_->GetRenderWidgetHostImpl()->GetWeakPtr(), wheel_event,
+        std::move(event));
   } else {
     forward_event_func = base::BindOnce(
         [](base::WeakPtr<InputHandler> self,
@@ -1957,8 +1958,9 @@ Response InputHandler::EmulateTouchFromMouseEvent(const std::string& type,
             return;
           widget_host->ForwardMouseEvent(*event);
         },
-        weak_factory_.GetWeakPtr(), host_->GetRenderWidgetHost()->GetWeakPtr(),
-        mouse_event, std::move(event));
+        weak_factory_.GetWeakPtr(),
+        host_->GetRenderWidgetHostImpl()->GetWeakPtr(), mouse_event,
+        std::move(event));
   }
   // We make sure the compositor is up to date before sending a mouse event.
   // Otherwise it wont be picked up by newly added event listeners on the main

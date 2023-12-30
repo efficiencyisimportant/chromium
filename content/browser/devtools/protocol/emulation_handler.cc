@@ -477,7 +477,7 @@ Response EmulationHandler::CanEmulate(bool* result) {
   *result = true;
   if (host_) {
     if (GetWebContents()->GetVisibleURL().SchemeIs(kChromeDevToolsScheme) ||
-        host_->GetRenderWidgetHost()->auto_resize_enabled())
+        host_->GetRenderWidgetHostImpl()->auto_resize_enabled())
       *result = false;
   }
 #endif  // BUILDFLAG(IS_ANDROID)
@@ -889,14 +889,16 @@ void EmulationHandler::UpdateTouchEventEmulationState() {
 
   if (touch_emulation_enabled_) {
     if (auto* touch_emulator =
-            host_->GetRenderWidgetHost()->GetTouchEmulator()) {
+            host_->GetRenderWidgetHostImpl()->GetTouchEmulator()) {
       touch_emulator->Enable(
           TouchEmulator::Mode::kEmulatingTouchFromMouse,
           TouchEmulationConfigurationToType(touch_emulation_configuration_));
     }
   } else {
-    if (auto* touch_emulator = host_->GetRenderWidgetHost()->GetTouchEmulator())
+    if (auto* touch_emulator =
+            host_->GetRenderWidgetHostImpl()->GetTouchEmulator()) {
       touch_emulator->Disable();
+    }
   }
   GetWebContents()->SetForceDisableOverscrollContent(touch_emulation_enabled_);
 }
@@ -920,7 +922,7 @@ void EmulationHandler::UpdateDeviceEmulationState() {
         // The main frame of nested subpages (ex. fenced frames, portals) inside
         // this page are updated as well.
         if (host->is_main_frame())
-          UpdateDeviceEmulationStateForHost(host->GetRenderWidgetHost());
+          UpdateDeviceEmulationStateForHost(host->GetRenderWidgetHostImpl());
       });
 }
 
