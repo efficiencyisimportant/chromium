@@ -8,6 +8,10 @@
 #include "cc/paint/paint_image.h"
 #include "cc/paint/paint_image_builder.h"
 
+namespace cc {
+class SkiaPaintImageGenerator;
+}
+
 namespace blink {
 using cc::FrameMetadata;
 using cc::PaintImage;

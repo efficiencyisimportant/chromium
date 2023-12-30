@@ -28,6 +28,7 @@
 #include <memory>
 #include <utility>
 
+#include "cc/paint/skia_paint_image_generator.h"
 #include "third_party/blink/public/platform/platform.h"
 #include "third_party/blink/renderer/platform/graphics/image_frame_generator.h"
 #include "third_party/blink/renderer/platform/graphics/skia/skia_utils.h"

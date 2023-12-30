@@ -32,6 +32,7 @@
 
 #include <utility>
 #include "third_party/blink/renderer/platform/graphics/decoding_image_generator.h"
+#include "third_party/skia/include/core/SkImageGenerator.h"
 
 namespace blink {
 
