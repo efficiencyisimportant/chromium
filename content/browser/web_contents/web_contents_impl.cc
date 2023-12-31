@@ -53,6 +53,7 @@
 #include "components/viz/common/features.h"
 #include "content/browser/accessibility/browser_accessibility.h"
 #include "content/browser/accessibility/browser_accessibility_state_impl.h"
+#include "content/browser/accessibility/browser_accessibility_manager.h"
 #include "content/browser/attribution_reporting/attribution_host.h"
 #include "content/browser/attribution_reporting/attribution_manager.h"
 #include "content/browser/bad_message.h"

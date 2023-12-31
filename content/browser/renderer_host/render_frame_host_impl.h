@@ -42,7 +42,6 @@
 #include "base/types/pass_key.h"
 #include "base/unguessable_token.h"
 #include "build/build_config.h"
-#include "content/browser/accessibility/browser_accessibility_manager.h"
 #include "content/browser/accessibility/web_ax_platform_tree_manager_delegate.h"
 #include "content/browser/bad_message.h"
 #include "content/browser/browser_interface_broker_impl.h"
@@ -256,6 +255,7 @@ class DocumentServiceBase;
 }  // namespace internal
 
 class AgentSchedulingGroupHost;
+class BrowserAccessibilityManager;
 class BrowsingContextState;
 class CodeCacheHostImpl;
 class CrossOriginEmbedderPolicyReporter;
@@ -291,6 +291,7 @@ class SpeechSynthesisImpl;
 class TimeoutMonitor;
 class WebAuthRequestSecurityChecker;
 class WebUIImpl;
+struct AXEventNotificationDetails;
 struct PendingNavigation;
 struct ResourceTimingInfo;
 struct SubresourceLoaderParams;
