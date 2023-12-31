@@ -13,6 +13,7 @@
 #include <utility>
 #include <vector>
 
+#include "base/containers/flat_set.h"
 #include "base/memory/raw_ptr_exclusion.h"
 #include "base/memory/scoped_refptr.h"
 #include "base/memory/weak_ptr.h"
@@ -26,7 +27,6 @@
 #include "components/omnibox/browser/suggestion_answer.h"
 #include "components/query_tiles/tile.h"
 #include "components/search_engines/template_url.h"
-#include "components/url_formatter/url_formatter.h"
 #include "third_party/abseil-cpp/absl/types/optional.h"
 #include "third_party/metrics_proto/omnibox_event.pb.h"
 #include "third_party/omnibox_proto/groups.pb.h"
@@ -54,6 +54,10 @@ class Time;
 namespace gfx {
 struct VectorIcon;
 }  // namespace gfx
+
+namespace url_formatter {
+using FormatUrlTypes = uint32_t;
+}
 
 const char kACMatchPropertySuggestionText[] = "match suggestion text";
 const char kACMatchPropertyContentsPrefix[] = "match contents prefix";

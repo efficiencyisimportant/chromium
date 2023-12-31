@@ -5,6 +5,7 @@
 #include "components/omnibox/browser/history_cluster_provider.h"
 
 #include "base/feature_list.h"
+#include "base/strings/escape.h"
 #include "base/strings/stringprintf.h"
 #include "base/strings/utf_string_conversions.h"
 #include "components/history_clusters/core/config.h"
