@@ -44,6 +44,7 @@
 #include "chrome/common/pref_names.h"
 #include "components/enterprise/browser/reporting/common_pref_names.h"
 #include "components/policy/core/common/management/management_service.h"
+#include "components/prefs/pref_service.h"
 #include "components/safe_browsing/core/common/safe_browsing_prefs.h"
 #include "components/strings/grit/components_strings.h"
 #include "components/supervised_user/core/common/pref_names.h"

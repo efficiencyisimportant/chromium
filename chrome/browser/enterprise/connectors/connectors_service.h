@@ -11,7 +11,7 @@
 #include "base/gtest_prod_util.h"
 #include "base/memory/raw_ptr.h"
 #include "build/build_config.h"
-#include "chrome/browser/enterprise/connectors/connectors_manager.h"
+#include "chrome/browser/enterprise/connectors/common.h"
 #include "components/enterprise/common/proto/connectors.pb.h"
 #include "components/keyed_service/content/browser_context_keyed_service_factory.h"
 #include "components/keyed_service/core/keyed_service.h"
@@ -29,6 +29,9 @@ class FileSystemURL;
 }
 
 namespace enterprise_connectors {
+
+class ConnectorsManager;
+struct AnalysisConfig;
 
 // Controls whether the Enterprise Connectors policies should be read by
 // ConnectorsManager in Managed Guest Sessions.
