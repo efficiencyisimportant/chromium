@@ -23,7 +23,6 @@
 #include "content/public/browser/browser_thread.h"
 #include "extensions/browser/extension_function_histogram_value.h"
 #include "extensions/browser/quota_service.h"
-#include "extensions/browser/service_worker/service_worker_keepalive.h"
 #include "extensions/browser/service_worker/worker_id.h"
 #include "extensions/common/constants.h"
 #include "extensions/common/context_data.h"
@@ -49,6 +48,7 @@ class WebContents;
 
 namespace extensions {
 class ExtensionFunctionDispatcher;
+class ServiceWorkerKeepalive;
 }
 
 #ifdef NDEBUG
@@ -360,9 +360,7 @@ class ExtensionFunction : public base::RefCountedThreadSafe<
   }
 
   void set_service_worker_keepalive(
-      std::unique_ptr<extensions::ServiceWorkerKeepalive> keepalive) {
-    service_worker_keepalive_ = std::move(keepalive);
-  }
+      std::unique_ptr<extensions::ServiceWorkerKeepalive> keepalive);
   // Out-of-line because the release of the keepalive can invoke significant
   // work.
   void ResetServiceWorkerKeepalive();

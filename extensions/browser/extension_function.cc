@@ -536,6 +536,11 @@ bool ExtensionFunction::user_gesture() const {
   return user_gesture_ || UserGestureForTests::GetInstance()->HaveGesture();
 }
 
+void ExtensionFunction::set_service_worker_keepalive(
+    std::unique_ptr<extensions::ServiceWorkerKeepalive> keepalive) {
+  service_worker_keepalive_ = std::move(keepalive);
+}
+
 void ExtensionFunction::ResetServiceWorkerKeepalive() {
   service_worker_keepalive_.reset();
 }
