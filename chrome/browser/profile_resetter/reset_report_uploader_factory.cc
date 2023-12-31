@@ -8,6 +8,7 @@
 #include "chrome/browser/profile_resetter/reset_report_uploader.h"
 #include "content/public/browser/browser_context.h"
 #include "content/public/browser/storage_partition.h"
+#include "services/network/public/cpp/shared_url_loader_factory.h"
 
 // static
 ResetReportUploaderFactory* ResetReportUploaderFactory::GetInstance() {

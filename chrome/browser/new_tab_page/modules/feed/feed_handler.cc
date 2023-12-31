@@ -18,6 +18,7 @@
 #include "content/public/browser/storage_partition.h"
 #include "google_apis/google_api_keys.h"
 #include "mojo/public/cpp/bindings/clone_traits.h"
+#include "services/network/public/cpp/shared_url_loader_factory.h"
 
 class Browser;
 

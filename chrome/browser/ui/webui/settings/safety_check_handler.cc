@@ -38,6 +38,7 @@
 #include "extensions/browser/extension_prefs_factory.h"
 #include "extensions/browser/extension_system.h"
 #include "extensions/common/extension_id.h"
+#include "services/network/public/cpp/shared_url_loader_factory.h"
 #include "ui/base/l10n/l10n_util.h"
 #include "ui/strings/grit/ui_strings.h"
 

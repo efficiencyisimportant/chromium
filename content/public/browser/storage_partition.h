@@ -17,7 +17,8 @@
 #include "components/services/storage/public/mojom/cache_storage_control.mojom-forward.h"
 #include "components/services/storage/public/mojom/local_storage_control.mojom-forward.h"
 #include "content/common/content_export.h"
-#include "services/network/public/cpp/shared_url_loader_factory.h"
+#include "mojo/public/cpp/bindings/pending_receiver.h"
+#include "mojo/public/cpp/bindings/pending_remote.h"
 #include "services/network/public/mojom/cert_verifier_service.mojom-forward.h"
 #include "services/network/public/mojom/cookie_manager.mojom-forward.h"
 #include "services/network/public/mojom/restricted_cookie_manager.mojom-forward.h"
@@ -43,6 +44,8 @@ class ProtoDatabaseProvider;
 }  // namespace leveldb_proto
 
 namespace network {
+class PendingSharedURLLoaderFactory;
+class SharedURLLoaderFactory;
 namespace mojom {
 class CookieManager;
 class NetworkContext;

@@ -17,6 +17,7 @@
 #include "components/image_fetcher/core/image_fetcher_impl.h"
 #include "content/public/browser/browser_context.h"
 #include "content/public/browser/storage_partition.h"
+#include "services/network/public/cpp/shared_url_loader_factory.h"
 #include "ui/gfx/favicon_size.h"
 
 namespace {

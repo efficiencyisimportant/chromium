@@ -10,6 +10,7 @@
 #include "components/sync/service/sync_service.h"
 #include "content/public/browser/browser_context.h"
 #include "content/public/browser/storage_partition.h"
+#include "services/network/public/cpp/shared_url_loader_factory.h"
 
 namespace {
 // Returns true if the user is signed in and full history sync is enabled,

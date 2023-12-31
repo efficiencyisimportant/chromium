@@ -9,6 +9,7 @@
 #include "chrome/browser/signin/identity_manager_factory.h"
 #include "components/password_manager/core/browser/leak_detection/bulk_leak_check_service.h"
 #include "content/public/browser/storage_partition.h"
+#include "services/network/public/cpp/shared_url_loader_factory.h"
 
 BulkLeakCheckServiceFactory::BulkLeakCheckServiceFactory()
     : ProfileKeyedServiceFactory(

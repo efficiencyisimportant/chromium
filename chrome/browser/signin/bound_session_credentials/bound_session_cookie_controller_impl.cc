@@ -20,6 +20,7 @@
 #include "chrome/browser/signin/wait_for_network_callback_helper_chrome.h"
 #include "content/public/browser/storage_partition.h"
 #include "services/network/public/cpp/network_connection_tracker.h"
+#include "services/network/public/cpp/shared_url_loader_factory.h"
 
 namespace {
 using Result = BoundSessionRefreshCookieFetcher::Result;

@@ -46,6 +46,7 @@
 #include "content/public/browser/storage_partition.h"
 #include "extensions/browser/extension_prefs.h"
 #include "extensions/browser/extension_prefs_observer.h"
+#include "services/network/public/cpp/shared_url_loader_factory.h"
 
 namespace extensions {
 

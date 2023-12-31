@@ -30,6 +30,7 @@
 #include "net/url_request/referrer_policy.h"
 #include "services/media_session/public/cpp/util.h"
 #include "services/media_session/public/mojom/media_session.mojom.h"
+#include "services/network/public/cpp/shared_url_loader_factory.h"
 
 using Metadata = media_message_center::MediaNotificationViewImpl::Metadata;
 

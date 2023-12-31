@@ -23,6 +23,7 @@
 #include "content/public/browser/storage_partition.h"
 #include "net/base/load_flags.h"
 #include "services/data_decoder/public/cpp/data_decoder.h"
+#include "services/network/public/cpp/shared_url_loader_factory.h"
 #include "third_party/skia/include/core/SkBitmap.h"
 
 namespace {

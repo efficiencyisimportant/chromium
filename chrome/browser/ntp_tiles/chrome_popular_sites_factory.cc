@@ -12,6 +12,7 @@
 #include "content/public/browser/browser_context.h"
 #include "content/public/browser/browser_thread.h"
 #include "content/public/browser/storage_partition.h"
+#include "services/network/public/cpp/shared_url_loader_factory.h"
 
 std::unique_ptr<ntp_tiles::PopularSites>
 ChromePopularSitesFactory::NewForProfile(Profile* profile) {
