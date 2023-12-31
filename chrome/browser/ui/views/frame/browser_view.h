@@ -43,7 +43,6 @@
 #include "chrome/browser/ui/views/user_education/browser_feature_promo_controller.h"
 #include "chrome/common/buildflags.h"
 #include "components/infobars/core/infobar_container.h"
-#include "components/segmentation_platform/public/result.h"
 #include "components/user_education/common/feature_promo_controller.h"
 #include "components/user_education/common/feature_promo_handle.h"
 #include "components/webapps/browser/banners/app_banner_manager.h"
@@ -91,6 +90,10 @@ class TopControlsSlideControllerTest;
 class WebAppFrameToolbarView;
 class WebContentsCloseHandler;
 class WebUITabStripContainerView;
+
+namespace segmentation_platform {
+struct ClassificationResult;
+}
 
 namespace ui {
 class NativeTheme;
