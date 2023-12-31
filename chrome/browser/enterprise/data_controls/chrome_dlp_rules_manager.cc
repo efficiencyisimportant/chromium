@@ -5,6 +5,7 @@
 #include "chrome/browser/enterprise/data_controls/chrome_dlp_rules_manager.h"
 
 #include "base/feature_list.h"
+#include "base/functional/callback_helpers.h"
 #include "base/notreached.h"
 #include "chrome/browser/profiles/profile.h"
 #include "components/enterprise/data_controls/features.h"

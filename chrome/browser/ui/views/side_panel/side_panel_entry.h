@@ -11,7 +11,7 @@
 #include <string>
 
 #include "base/functional/callback.h"
-#include "base/functional/callback_forward.h"
+#include "base/functional/callback_helpers.h"
 #include "base/observer_list.h"
 #include "base/time/time.h"
 #include "chrome/browser/ui/side_panel/side_panel_entry_id.h"
