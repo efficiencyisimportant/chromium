@@ -35,7 +35,6 @@
 #include "chrome/browser/profiles/profile_manager_observer.h"
 #include "chrome/browser/upgrade_detector/upgrade_observer.h"
 #include "components/sync/model/string_ordinal.h"
-#include "content/public/browser/render_process_host.h"
 #include "content/public/browser/render_process_host_creation_observer.h"
 #include "extensions/browser/api/declarative_net_request/ruleset_install_pref.h"
 #include "extensions/browser/crx_file_info.h"
@@ -70,6 +69,10 @@ namespace base {
 class CommandLine;
 class OneShotEvent;
 }  // namespace base
+
+namespace content {
+class RenderProcessHost;
+}
 
 FORWARD_DECLARE_TEST(BlocklistedExtensionSyncServiceTest,
                      SyncBlocklistedExtension);
