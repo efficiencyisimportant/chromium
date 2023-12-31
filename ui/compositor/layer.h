@@ -19,7 +19,7 @@
 #include "base/observer_list.h"
 #include "cc/base/region.h"
 #include "cc/layers/content_layer_client.h"
-#include "cc/layers/surface_layer.h"
+#include "cc/layers/layer.h"
 #include "cc/layers/texture_layer_client.h"
 #include "cc/paint/filter_operation.h"
 #include "components/viz/common/resources/transferable_resource.h"
@@ -31,9 +31,10 @@
 #include "ui/gfx/image/image_skia.h"
 
 namespace cc {
-class Layer;
+class DeadlinePolicy;
 class MirrorLayer;
 class NinePatchLayer;
+class PictureLayer;
 class SolidColorLayer;
 class SurfaceLayer;
 class TextureLayer;
@@ -47,6 +48,7 @@ class LinearGradient;
 
 namespace viz {
 class CopyOutputRequest;
+class SurfaceId;
 struct TransferableResource;
 }
 

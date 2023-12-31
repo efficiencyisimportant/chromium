@@ -19,6 +19,7 @@
 #include "build/build_config.h"
 #include "build/chromeos_buildflags.h"
 #include "cc/base/switches.h"
+#include "cc/layers/deadline_policy.h"
 #include "components/viz/common/features.h"
 #include "components/viz/common/frame_sinks/copy_output_request.h"
 #include "components/viz/common/quads/compositor_frame.h"

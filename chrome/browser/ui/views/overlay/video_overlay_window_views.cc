@@ -15,6 +15,7 @@
 #include "base/time/time.h"
 #include "base/timer/timer.h"
 #include "build/build_config.h"
+#include "cc/layers/deadline_policy.h"
 #include "chrome/browser/picture_in_picture/picture_in_picture_occlusion_tracker.h"
 #include "chrome/browser/picture_in_picture/picture_in_picture_window_manager.h"
 #include "chrome/browser/profiles/profile.h"
