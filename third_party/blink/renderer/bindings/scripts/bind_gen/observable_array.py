@@ -447,10 +447,9 @@ def generate_observable_array(observable_array_identifier):
     (header_forward_decls, header_include_headers, source_forward_decls,
      source_include_headers) = collect_forward_decls_and_include_headers(
          [observable_array.element_type])
-    header_node.accumulator.add_class_decls(header_forward_decls)
     header_node.accumulator.add_include_headers(header_include_headers)
+    header_node.accumulator.add_include_headers(source_include_headers)
     source_node.accumulator.add_class_decls(source_forward_decls)
-    source_node.accumulator.add_include_headers(source_include_headers)
 
     handler_fwd_decls = CxxNamespaceNode(name_style.namespace("bindings"))
     handler_fwd_decls.body.append(
