@@ -20,6 +20,7 @@
 #include "base/time/time.h"
 #include "base/trace_event/base_tracing.h"
 #include "base/trace_event/base_tracing_forward.h"
+#include "base/tracing/protos/chrome_track_event.pbzero.h"
 #include "third_party/abseil-cpp/absl/types/optional.h"
 
 namespace perfetto {

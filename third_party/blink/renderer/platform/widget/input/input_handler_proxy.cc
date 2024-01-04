@@ -20,6 +20,7 @@
 #include "base/task/single_thread_task_runner.h"
 #include "base/time/default_tick_clock.h"
 #include "base/trace_event/trace_event.h"
+#include "base/tracing/protos/chrome_track_event.pbzero.h"
 #include "build/build_config.h"
 #include "cc/base/features.h"
 #include "cc/input/main_thread_scrolling_reason.h"

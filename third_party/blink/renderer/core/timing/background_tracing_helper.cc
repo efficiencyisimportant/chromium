@@ -9,6 +9,7 @@
 #include "base/rand_util.h"
 #include "base/sys_byteorder.h"
 #include "base/trace_event/typed_macros.h"
+#include "base/tracing/protos/chrome_track_event.pbzero.h"
 #include "third_party/blink/public/common/features.h"
 #include "third_party/blink/renderer/core/execution_context/execution_context.h"
 #include "third_party/blink/renderer/core/timing/performance_mark.h"

@@ -9,6 +9,7 @@
 
 #include "base/trace_event/trace_event.h"
 #include "base/trace_event/typed_macros.h"
+#include "base/tracing/protos/chrome_track_event.pbzero.h"
 #include "third_party/blink/renderer/core/execution_context/execution_context.h"
 #include "third_party/blink/renderer/modules/scheduler/script_wrappable_task_state.h"
 #include "third_party/blink/renderer/platform/bindings/dom_wrapper_world.h"

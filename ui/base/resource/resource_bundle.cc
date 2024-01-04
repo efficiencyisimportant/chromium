@@ -29,6 +29,7 @@
 #include "base/strings/utf_string_conversions.h"
 #include "base/synchronization/lock.h"
 #include "base/trace_event/base_tracing.h"
+#include "base/tracing/protos/chrome_track_event.pbzero.h"
 #include "build/build_config.h"
 #include "net/filter/gzip_header.h"
 #include "skia/ext/image_operations.h"

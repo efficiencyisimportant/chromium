@@ -22,6 +22,11 @@
 #include "third_party/blink/public/mojom/frame/back_forward_cache_controller.mojom.h"
 #include "ui/accessibility/ax_event.h"
 
+namespace perfetto::protos::pbzero {
+class BackForwardCacheCanStoreDocumentResult;
+class ChromeTrackEvent;
+}
+
 namespace content {
 
 using BlockListedFeatures = blink::scheduler::WebSchedulerTrackedFeatures;

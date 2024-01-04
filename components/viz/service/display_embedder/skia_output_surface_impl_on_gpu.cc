@@ -21,6 +21,7 @@
 #include "base/threading/thread_checker.h"
 #include "base/time/time.h"
 #include "base/trace_event/typed_macros.h"
+#include "base/tracing/protos/chrome_track_event.pbzero.h"
 #include "build/build_config.h"
 #include "components/viz/common/features.h"
 #include "components/viz/common/frame_sinks/blit_request.h"

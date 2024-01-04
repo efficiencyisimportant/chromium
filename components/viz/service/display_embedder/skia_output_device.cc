@@ -16,6 +16,7 @@
 #include "base/task/task_traits.h"
 #include "base/task/thread_pool.h"
 #include "base/task/thread_pool/thread_pool_instance.h"
+#include "base/tracing/protos/chrome_track_event.pbzero.h"
 #include "gpu/command_buffer/service/memory_tracking.h"
 #include "gpu/command_buffer/service/skia_utils.h"
 #include "services/tracing/public/cpp/perfetto/flow_event_utils.h"

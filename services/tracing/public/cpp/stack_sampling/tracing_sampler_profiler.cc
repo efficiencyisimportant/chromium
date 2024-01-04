@@ -27,6 +27,7 @@
 #include "base/trace_event/trace_event.h"
 #include "base/trace_event/trace_log.h"
 #include "base/trace_event/typed_macros.h"
+#include "base/tracing/protos/chrome_track_event.pbzero.h"
 #include "build/build_config.h"
 #include "services/tracing/public/cpp/buildflags.h"
 #include "services/tracing/public/cpp/perfetto/perfetto_traced_process.h"
