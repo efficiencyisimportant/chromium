@@ -16,7 +16,7 @@
 #include "third_party/abseil-cpp/absl/types/optional.h"
 #include "third_party/blink/public/common/common_export.h"
 #include "third_party/blink/public/mojom/fenced_frame/fenced_frame_config.mojom-forward.h"
-#include "third_party/blink/public/mojom/permissions_policy/permissions_policy.mojom.h"
+#include "third_party/blink/public/mojom/permissions_policy/permissions_policy_feature.mojom.h"
 #include "ui/gfx/geometry/size.h"
 #include "url/gurl.h"
 #include "url/origin.h"
