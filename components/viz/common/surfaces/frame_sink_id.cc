@@ -8,6 +8,7 @@
 
 #include "base/strings/string_piece.h"
 #include "base/strings/stringprintf.h"
+#include "base/tracing/protos/chrome_track_event.pbzero.h"
 
 namespace viz {
 
