@@ -29,6 +29,7 @@
 
 #include "third_party/blink/renderer/core/dom/text_link_colors.h"
 
+#include "third_party/blink/public/mojom/frame/color_scheme.mojom-blink.h"
 #include "third_party/blink/renderer/core/css/css_color.h"
 #include "third_party/blink/renderer/core/css/css_color_mix_value.h"
 #include "third_party/blink/renderer/core/css/css_identifier_value.h"

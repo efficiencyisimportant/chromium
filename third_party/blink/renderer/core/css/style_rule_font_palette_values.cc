@@ -5,6 +5,7 @@
 #include "third_party/blink/renderer/core/css/style_rule_font_palette_values.h"
 
 #include "base/numerics/safe_conversions.h"
+#include "third_party/blink/public/mojom/frame/color_scheme.mojom-blink.h"
 #include "third_party/blink/renderer/core/css/css_color.h"
 #include "third_party/blink/renderer/core/css/css_font_family_value.h"
 #include "third_party/blink/renderer/core/css/css_font_palette_values_rule.h"

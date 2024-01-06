@@ -4,12 +4,14 @@
 
 #include "third_party/blink/renderer/core/css/properties/css_color_function_parser.h"
 #include <cmath>
+#include "third_party/blink/public/mojom/frame/color_scheme.mojom-shared.h"
 #include "third_party/blink/public/mojom/use_counter/metrics/web_feature.mojom-shared.h"
 #include "third_party/blink/renderer/core/css/css_color.h"
 #include "third_party/blink/renderer/core/css/css_identifier_value.h"
 #include "third_party/blink/renderer/core/css/css_math_function_value.h"
 #include "third_party/blink/renderer/core/css/parser/css_parser_token_range.h"
 #include "third_party/blink/renderer/core/css/properties/css_parsing_utils.h"
+#include "third_party/blink/renderer/core/css/style_color.h"
 #include "third_party/blink/renderer/core/css_value_keywords.h"
 
 namespace blink {

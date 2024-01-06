@@ -132,8 +132,8 @@ class CSSValueIDMappingsWriter(make_style_builder.StyleBuilderWriter):
                 range(len(css_values_dictionary))))
 
         for property_ in self.css_properties.properties_including_aliases:
-            include_paths.update(property_.include_paths)
             if property_.field_template in ('multi_keyword', 'bitset_keyword'):
+                include_paths.update(property_.include_paths)
                 mappings[property_.type_name] = {
                     'default_value':
                     property_.default_value,
@@ -141,6 +141,7 @@ class CSSValueIDMappingsWriter(make_style_builder.StyleBuilderWriter):
                     [enum_key_for_css_keyword(k) for k in property_.keywords],
                 }
             elif property_.field_template == 'keyword':
+                include_paths.update(property_.include_paths)
                 enum_pair_list, enum_segment, p_segment = _find_enum_longest_continuous_segment(
                     property_, name_to_position_dictionary)
                 mappings[property_.type_name] = {
