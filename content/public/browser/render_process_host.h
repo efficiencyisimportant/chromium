@@ -19,7 +19,6 @@
 #include "base/process/kill.h"
 #include "base/process/process.h"
 #include "base/supports_user_data.h"
-#include "base/tracing/protos/chrome_track_event.pbzero.h"
 #include "build/build_config.h"
 #include "content/common/content_export.h"
 #include "content/public/browser/web_exposed_isolation_level.h"
@@ -87,6 +86,10 @@ class ChannelProxy;
 namespace network {
 struct CrossOriginEmbedderPolicy;
 }  // namespace network
+
+namespace perfetto::protos::pbzero {
+class RenderProcessHost;
+}
 
 namespace storage {
 struct BucketLocator;

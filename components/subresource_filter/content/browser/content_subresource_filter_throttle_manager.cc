@@ -15,6 +15,7 @@
 #include "base/trace_event/trace_conversion_helper.h"
 #include "base/trace_event/trace_event.h"
 #include "base/trace_event/traced_value.h"
+#include "base/tracing/protos/chrome_track_event.pbzero.h"
 #include "components/subresource_filter/content/browser/activation_state_computing_navigation_throttle.h"
 #include "components/subresource_filter/content/browser/async_document_subresource_filter.h"
 #include "components/subresource_filter/content/browser/content_subresource_filter_web_contents_helper.h"

@@ -20,6 +20,7 @@
 #include "base/strings/string_number_conversions.h"
 #include "base/strings/utf_string_conversions.h"
 #include "base/trace_event/trace_event.h"
+#include "base/tracing/protos/chrome_track_event.pbzero.h"
 #include "build/build_config.h"
 #include "build/chromeos_buildflags.h"
 #include "chrome/browser/profiles/profile.h"
