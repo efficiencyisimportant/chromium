@@ -14,6 +14,7 @@
 #include "chrome/browser/ip_protection/get_proxy_config.pb.h"
 #include "google_apis/google_api_keys.h"
 #include "net/base/features.h"
+#include "net/http/http_response_headers.h"
 #include "services/network/public/cpp/resource_request.h"
 #include "services/network/public/cpp/resource_request_body.h"
 #include "services/network/public/cpp/shared_url_loader_factory.h"

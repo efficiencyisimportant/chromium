@@ -55,6 +55,7 @@
 #include "media/mojo/mojom/media_service.mojom.h"
 #include "mojo/public/cpp/bindings/message.h"
 #include "net/cookies/site_for_cookies.h"
+#include "net/http/http_response_headers.h"
 #include "net/ssl/client_cert_identity.h"
 #include "net/ssl/client_cert_store.h"
 #include "sandbox/policy/features.h"

@@ -18,6 +18,7 @@
 #include "content/public/browser/site_instance.h"
 #include "content/public/browser/storage_partition.h"
 #include "net/base/ip_endpoint.h"
+#include "net/http/http_response_headers.h"
 #include "services/network/public/mojom/network_context.mojom.h"
 #include "services/network/public/mojom/url_response_head.mojom.h"
 #include "url/origin.h"

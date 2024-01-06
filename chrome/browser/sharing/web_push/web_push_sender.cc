@@ -13,6 +13,7 @@
 #include "chrome/browser/sharing/web_push/json_web_token_util.h"
 #include "components/gcm_driver/crypto/p256_key_util.h"
 #include "net/http/http_request_headers.h"
+#include "net/http/http_response_headers.h"
 #include "net/http/http_status_code.h"
 #include "services/network/public/cpp/header_util.h"
 #include "services/network/public/cpp/resource_request.h"

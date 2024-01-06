@@ -16,6 +16,7 @@
 #include "content/public/common/content_client.h"
 #include "mojo/public/cpp/bindings/remote.h"
 #include "mojo/public/cpp/bindings/self_owned_receiver.h"
+#include "net/http/http_response_headers.h"
 
 namespace content {
 

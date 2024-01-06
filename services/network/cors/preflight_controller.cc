@@ -17,6 +17,7 @@
 #include "net/base/load_flags.h"
 #include "net/base/network_isolation_key.h"
 #include "net/http/http_request_headers.h"
+#include "net/http/http_response_headers.h"
 #include "net/log/net_log.h"
 #include "net/log/net_log_source.h"
 #include "net/log/net_log_with_source.h"

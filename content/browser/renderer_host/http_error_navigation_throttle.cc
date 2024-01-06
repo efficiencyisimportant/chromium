@@ -8,6 +8,7 @@
 #include "base/task/single_thread_task_runner.h"
 #include "content/browser/renderer_host/navigation_request.h"
 #include "content/public/common/content_client.h"
+#include "net/http/http_response_headers.h"
 
 namespace content {
 

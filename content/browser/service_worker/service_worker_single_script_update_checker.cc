@@ -25,6 +25,7 @@
 #include "net/base/isolation_info.h"
 #include "net/base/load_flags.h"
 #include "net/cookies/site_for_cookies.h"
+#include "net/http/http_response_headers.h"
 #include "net/http/http_response_info.h"
 #include "services/network/public/cpp/net_adapters.h"
 #include "services/network/public/cpp/record_ontransfersizeupdate_utils.h"

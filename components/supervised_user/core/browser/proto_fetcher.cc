@@ -29,6 +29,7 @@
 #include "components/supervised_user/core/common/supervised_user_constants.h"
 #include "google_apis/gaia/google_service_auth_error.h"
 #include "net/base/request_priority.h"
+#include "net/http/http_response_headers.h"
 #include "net/http/http_status_code.h"
 #include "services/network/public/cpp/resource_request.h"
 #include "services/network/public/cpp/simple_url_loader.h"

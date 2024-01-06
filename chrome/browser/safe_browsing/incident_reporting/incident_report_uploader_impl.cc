@@ -15,6 +15,7 @@
 #include "components/safe_browsing/core/common/proto/csd.pb.h"
 #include "google_apis/google_api_keys.h"
 #include "net/base/load_flags.h"
+#include "net/http/http_response_headers.h"
 #include "net/http/http_status_code.h"
 #include "net/traffic_annotation/network_traffic_annotation.h"
 #include "services/network/public/cpp/resource_request.h"

@@ -31,6 +31,7 @@
 #include "net/base/network_anonymization_key.h"
 #include "net/cookies/cookie_setting_override.h"
 #include "net/http/http_cache.h"
+#include "net/http/http_response_headers.h"
 #include "net/http/http_util.h"
 #include "net/url_request/redirect_util.h"
 #include "services/network/public/cpp/constants.h"

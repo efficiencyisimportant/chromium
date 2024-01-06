@@ -12,6 +12,7 @@
 #include "chrome/browser/media/router/providers/dial/dial_internal_message_util.h"
 #include "components/media_router/common/media_source.h"
 #include "net/base/url_util.h"
+#include "net/http/http_response_headers.h"
 #include "services/network/public/mojom/url_response_head.mojom.h"
 
 namespace media_router {

@@ -8,6 +8,7 @@
 #include "base/trace_event/common/trace_event_common.h"
 #include "base/trace_event/trace_event.h"
 #include "net/http/http_log_util.h"
+#include "net/http/http_response_headers.h"
 #include "services/network/network_service_memory_cache.h"
 #include "services/network/public/cpp/resource_request.h"
 #include "services/network/public/mojom/http_raw_headers.mojom.h"

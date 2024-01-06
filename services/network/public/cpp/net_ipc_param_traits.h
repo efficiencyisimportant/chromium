@@ -27,7 +27,6 @@
 #include "net/dns/public/resolve_error_info.h"
 #include "net/http/http_connection_info.h"
 #include "net/http/http_request_headers.h"
-#include "net/http/http_response_headers.h"
 #include "net/nqe/effective_connection_type.h"
 #include "net/ssl/ssl_info.h"
 #include "net/traffic_annotation/network_traffic_annotation.h"
@@ -48,6 +47,7 @@
 
 namespace net {
 class CertVerifyResult;
+class HttpResponseHeaders;
 }
 
 namespace IPC {

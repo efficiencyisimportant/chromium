@@ -28,6 +28,7 @@
 #include "google_apis/gaia/google_service_auth_error.h"
 #include "net/base/net_errors.h"
 #include "net/cookies/cookie_constants.h"
+#include "net/http/http_response_headers.h"
 #include "services/network/public/mojom/url_response_head.mojom.h"
 
 namespace {

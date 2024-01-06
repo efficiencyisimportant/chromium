@@ -31,6 +31,7 @@
 #include "content/browser/interest_group/interest_group_update.h"
 #include "content/browser/renderer_host/frame_tree_node.h"
 #include "mojo/public/cpp/bindings/self_owned_receiver.h"
+#include "net/http/http_response_headers.h"
 #include "services/network/public/cpp/resource_request.h"
 #include "services/network/public/cpp/shared_url_loader_factory.h"
 #include "services/network/public/mojom/client_security_state.mojom.h"

@@ -12,6 +12,7 @@
 #include "base/task/sequenced_task_runner.h"
 #include "base/time/time.h"
 #include "net/base/io_buffer.h"
+#include "net/http/http_response_headers.h"
 #include "net/third_party/quiche/src/quiche/common/platform/api/quiche_mem_slice.h"
 #include "net/third_party/quiche/src/quiche/quic/core/quic_session.h"
 #include "net/third_party/quiche/src/quiche/quic/core/quic_time.h"

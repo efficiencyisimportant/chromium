@@ -6,6 +6,7 @@
 #include "base/functional/bind.h"
 #include "base/metrics/histogram_macros.h"
 #include "content/browser/renderer_host/pending_beacon_host.h"
+#include "net/http/http_response_headers.h"
 #include "net/traffic_annotation/network_traffic_annotation.h"
 #include "services/network/public/cpp/data_element.h"
 #include "services/network/public/cpp/resource_request.h"

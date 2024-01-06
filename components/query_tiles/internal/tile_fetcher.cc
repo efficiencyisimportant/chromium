@@ -10,6 +10,7 @@
 #include "components/query_tiles/internal/stats.h"
 #include "net/base/url_util.h"
 #include "net/http/http_request_headers.h"
+#include "net/http/http_response_headers.h"
 #include "net/http/http_status_code.h"
 #include "net/traffic_annotation/network_traffic_annotation.h"
 #include "services/network/public/cpp/resource_request.h"

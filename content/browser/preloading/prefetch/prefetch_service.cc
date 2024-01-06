@@ -52,6 +52,7 @@
 #include "net/cookies/cookie_partition_key_collection.h"
 #include "net/cookies/site_for_cookies.h"
 #include "net/http/http_request_headers.h"
+#include "net/http/http_response_headers.h"
 #include "net/http/http_status_code.h"
 #include "net/http/http_util.h"
 #include "net/traffic_annotation/network_traffic_annotation.h"

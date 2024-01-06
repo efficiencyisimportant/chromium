@@ -13,6 +13,7 @@
 #include "content/public/common/content_features.h"
 #include "mojo/public/cpp/bindings/self_owned_receiver.h"
 #include "net/base/network_anonymization_key.h"
+#include "net/http/http_response_headers.h"
 #include "services/network/public/cpp/features.h"
 #include "services/network/public/cpp/record_ontransfersizeupdate_utils.h"
 #include "services/network/public/cpp/weak_wrapper_shared_url_loader_factory.h"

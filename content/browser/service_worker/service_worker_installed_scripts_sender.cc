@@ -10,6 +10,7 @@
 #include "content/browser/service_worker/service_worker_consts.h"
 #include "content/browser/service_worker/service_worker_context_core.h"
 #include "content/browser/service_worker/service_worker_script_cache_map.h"
+#include "net/http/http_response_headers.h"
 
 namespace content {
 

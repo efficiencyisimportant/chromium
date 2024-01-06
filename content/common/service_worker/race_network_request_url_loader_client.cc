@@ -16,6 +16,7 @@
 #include "content/common/service_worker/service_worker_resource_loader.h"
 #include "content/public/common/content_features.h"
 #include "mojo/public/c/system/data_pipe.h"
+#include "net/http/http_response_headers.h"
 #include "net/http/http_status_code.h"
 #include "services/network/public/cpp/features.h"
 #include "services/network/public/cpp/record_ontransfersizeupdate_utils.h"

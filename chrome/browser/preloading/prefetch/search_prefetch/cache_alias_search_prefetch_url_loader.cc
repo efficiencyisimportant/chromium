@@ -14,6 +14,7 @@
 #include "chrome/browser/profiles/profile.h"
 #include "content/public/browser/storage_partition.h"
 #include "net/base/load_flags.h"
+#include "net/http/http_response_headers.h"
 #include "net/http/http_status_code.h"
 #include "net/traffic_annotation/network_traffic_annotation.h"
 #include "services/network/public/cpp/record_ontransfersizeupdate_utils.h"

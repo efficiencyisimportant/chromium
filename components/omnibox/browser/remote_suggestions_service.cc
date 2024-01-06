@@ -13,6 +13,7 @@
 #include "components/search_engines/template_url_service.h"
 #include "components/variations/net/variations_http_headers.h"
 #include "net/base/load_flags.h"
+#include "net/http/http_response_headers.h"
 #include "net/traffic_annotation/network_traffic_annotation.h"
 #include "services/network/public/cpp/resource_request.h"
 #include "services/network/public/cpp/shared_url_loader_factory.h"

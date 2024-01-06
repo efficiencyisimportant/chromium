@@ -5,6 +5,7 @@
 #include "components/speech/upstream_loader.h"
 
 #include "components/speech/upstream_loader_client.h"
+#include "net/http/http_response_headers.h"
 #include "services/network/public/mojom/url_response_head.mojom.h"
 
 namespace speech {

@@ -93,6 +93,7 @@
 #include "extensions/common/features/feature_channel.h"
 #include "extensions/common/permissions/permission_set.h"
 #include "ipc/ipc_message.h"
+#include "net/http/http_response_headers.h"
 #include "third_party/abseil-cpp/absl/types/optional.h"
 #include "url/gurl.h"
 

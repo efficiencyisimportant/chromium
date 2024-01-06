@@ -19,6 +19,7 @@
 #include "google_apis/gaia/gaia_urls.h"
 #include "mojo/public/cpp/bindings/pending_remote.h"
 #include "net/cookies/canonical_cookie.h"
+#include "net/http/http_response_headers.h"
 #include "net/http/http_status_code.h"
 #include "net/traffic_annotation/network_traffic_annotation.h"
 #include "services/network/public/cpp/resource_request.h"

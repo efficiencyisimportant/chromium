@@ -9,6 +9,7 @@
 #include "base/task/sequenced_task_runner.h"
 #include "content/browser/preloading/prefetch/prefetch_features.h"
 #include "content/browser/preloading/prefetch/prefetch_streaming_url_loader.h"
+#include "net/http/http_response_headers.h"
 #include "services/network/public/mojom/early_hints.mojom.h"
 #include "services/network/public/mojom/url_response_head.mojom.h"
 

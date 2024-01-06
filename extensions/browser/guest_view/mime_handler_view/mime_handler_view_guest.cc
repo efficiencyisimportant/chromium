@@ -33,6 +33,7 @@
 #include "extensions/common/mojom/guest_view.mojom.h"
 #include "extensions/strings/grit/extensions_strings.h"
 #include "mojo/public/cpp/bindings/associated_remote.h"
+#include "net/http/http_response_headers.h"
 #include "pdf/buildflags.h"
 #include "services/service_manager/public/cpp/binder_registry.h"
 #include "third_party/blink/public/common/associated_interfaces/associated_interface_provider.h"

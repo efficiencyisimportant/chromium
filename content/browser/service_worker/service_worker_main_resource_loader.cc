@@ -36,6 +36,7 @@
 #include "content/public/common/content_features.h"
 #include "net/base/load_timing_info.h"
 #include "net/http/http_request_headers.h"
+#include "net/http/http_response_headers.h"
 #include "net/http/http_status_code.h"
 #include "services/network/public/cpp/features.h"
 #include "services/network/public/cpp/timing_allow_origin_parser.h"

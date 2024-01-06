@@ -11,6 +11,7 @@
 #include "chrome/browser/signin/identity_manager_factory.h"
 #include "components/signin/public/identity_manager/identity_manager.h"
 #include "net/base/load_flags.h"
+#include "net/http/http_response_headers.h"
 #include "net/http/http_status_code.h"
 #include "services/network/public/cpp/shared_url_loader_factory.h"
 #include "services/network/public/cpp/simple_url_loader.h"

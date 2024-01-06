@@ -13,6 +13,7 @@
 #include "base/feature_list.h"
 #include "base/strings/stringprintf.h"
 #include "mojo/public/cpp/bindings/self_owned_receiver.h"
+#include "net/http/http_response_headers.h"
 #include "net/http/http_util.h"
 #include "net/url_request/redirect_info.h"
 #include "net/url_request/redirect_util.h"

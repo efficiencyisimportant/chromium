@@ -32,6 +32,7 @@
 #include "content/public/browser/browser_thread.h"
 #include "content/public/browser/reduce_accept_language_controller_delegate.h"
 #include "net/base/url_util.h"
+#include "net/http/http_response_headers.h"
 #include "net/http/http_util.h"
 #include "services/network/public/cpp/resource_request.h"
 #include "services/network/public/cpp/simple_url_loader.h"

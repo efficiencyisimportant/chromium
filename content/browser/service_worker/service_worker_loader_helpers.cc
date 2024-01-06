@@ -18,6 +18,7 @@
 #include "content/public/common/content_client.h"
 #include "content/public/common/content_features.h"
 #include "content/public/common/referrer.h"
+#include "net/http/http_response_headers.h"
 #include "services/network/public/cpp/constants.h"
 #include "third_party/blink/public/common/features.h"
 #include "third_party/blink/public/common/mime_util/mime_util.h"
