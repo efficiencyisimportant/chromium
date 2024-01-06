@@ -28,7 +28,6 @@
 #include "third_party/blink/renderer/core/core_export.h"
 #include "third_party/blink/renderer/core/dom/element.h"
 #include "third_party/blink/renderer/core/dom/events/simulated_click_options.h"
-#include "third_party/blink/renderer/core/html/forms/labels_node_list.h"
 #include "third_party/blink/renderer/platform/heap/collection_support/heap_hash_set.h"
 #include "third_party/blink/renderer/platform/text/text_direction.h"
 #include "third_party/blink/renderer/platform/wtf/casting.h"
@@ -45,6 +44,7 @@ class FormAssociated;
 class HTMLFormElement;
 class HTMLSelectListElement;
 class KeyboardEvent;
+class LabelsNodeList;
 class TextControlElement;
 class V8UnionStringLegacyNullToEmptyStringOrTrustedScript;
 
