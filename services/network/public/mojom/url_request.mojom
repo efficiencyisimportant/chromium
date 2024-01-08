@@ -30,6 +30,7 @@ import "services/network/public/mojom/site_for_cookies.mojom";
 import "services/network/public/mojom/trust_tokens.mojom";
 import "services/network/public/mojom/trust_token_access_observer.mojom";
 import "services/network/public/mojom/url_response_head.mojom";
+import "services/network/public/mojom/url_loader_network_service_observer.mojom";
 import "services/network/public/mojom/web_bundle_handle.mojom";
 import "services/network/public/mojom/accept_ch_frame_observer.mojom";
 import "url/mojom/origin.mojom";

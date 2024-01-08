@@ -642,6 +642,7 @@ mojom("url_loader_base") {
         "//services/network/public/mojom/devtools_observer.mojom.h",
         "//services/network/public/mojom/cookie_access_observer.mojom.h",
         "//services/network/public/mojom/trust_token_access_observer.mojom.h",
+        "//services/network/public/mojom/url_loader_network_service_observer.mojom.h",
       ]
       traits_public_deps = [
         ":mojom_network_isolation_key",

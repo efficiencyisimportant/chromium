@@ -24,6 +24,7 @@
 #include "services/network/public/mojom/network_context.mojom.h"
 #include "services/network/public/mojom/shared_dictionary_access_observer.mojom.h"
 #include "services/network/public/mojom/url_loader_factory.mojom.h"
+#include "services/network/public/mojom/url_loader_network_service_observer.mojom.h"
 #include "third_party/abseil-cpp/absl/types/optional.h"
 
 namespace network {

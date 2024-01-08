@@ -37,7 +37,7 @@
 #include "services/network/public/mojom/shared_dictionary_access_observer.mojom.h"
 #include "services/network/public/mojom/trust_token_access_observer.mojom-forward.h"
 #include "services/network/public/mojom/trust_tokens.mojom.h"
-#include "services/network/public/mojom/url_loader_network_service_observer.mojom.h"
+#include "services/network/public/mojom/url_loader_network_service_observer.mojom-forward.h"
 #include "services/network/public/mojom/url_request.mojom-forward.h"
 #include "services/network/public/mojom/web_bundle_handle.mojom.h"
 #include "third_party/abseil-cpp/absl/types/optional.h"

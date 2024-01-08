@@ -5,6 +5,7 @@
 #include "components/custom_handlers/protocol_handler_throttle.h"
 
 #include "components/custom_handlers/protocol_handler_registry.h"
+#include "net/url_request/redirect_info.h"
 #include "services/network/public/cpp/resource_request.h"
 
 namespace custom_handlers {
