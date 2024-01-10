@@ -33,7 +33,7 @@
 #include "base/memory/raw_ptr_exclusion.h"
 #include "base/numerics/checked_math.h"
 #include "base/task/single_thread_task_runner.h"
-#include "device/vr/public/mojom/vr_service.mojom-blink.h"
+#include "device/vr/public/mojom/vr_service.mojom-blink-forward.h"
 #include "third_party/abseil-cpp/absl/types/optional.h"
 #include "third_party/blink/public/platform/platform.h"
 #include "third_party/blink/public/platform/web_graphics_context_3d_provider.h"
