@@ -21,11 +21,11 @@
 #include "content/public/browser/invalidate_type.h"
 #include "content/public/browser/media_stream_request.h"
 #include "content/public/browser/serial_chooser.h"
-#include "content/public/browser/web_contents.h"
 #include "content/public/common/window_container_type.mojom-forward.h"
 #include "third_party/blink/public/common/mediastream/media_stream_request.h"
 #include "third_party/blink/public/common/page/drag_operation.h"
 #include "third_party/blink/public/mojom/choosers/color_chooser.mojom-forward.h"
+#include "third_party/blink/public/mojom/devtools/console_message.mojom-forward.h"
 #include "third_party/blink/public/mojom/frame/blocked_navigation_types.mojom.h"
 #include "third_party/blink/public/mojom/frame/fullscreen.mojom-forward.h"
 #include "third_party/blink/public/mojom/manifest/display_mode.mojom.h"
@@ -93,6 +93,9 @@ enum class ProtocolHandlerSecurityLevel;
 namespace content {
 
 class AudioStreamBrokerFactory;
+class StoragePartitionConfig;
+class WebContents;
+enum class PreloadingEligibility;
 struct OpenURLParams;
 
 enum class KeyboardEventProcessingResult;
@@ -160,7 +163,7 @@ class CONTENT_EXPORT WebContentsDelegate {
       WindowOpenDisposition disposition,
       const blink::mojom::WindowFeatures& window_features,
       bool user_gesture,
-      bool* was_blocked) {}
+      bool* was_blocked);
 
   // Selects the specified contents, bringing its container to the front.
   virtual void ActivateContents(WebContents* contents) {}

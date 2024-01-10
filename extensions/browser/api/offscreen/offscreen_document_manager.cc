@@ -10,6 +10,7 @@
 #include "components/keyed_service/content/browser_context_dependency_manager.h"
 #include "components/keyed_service/content/browser_context_keyed_service_factory.h"
 #include "content/public/browser/browser_context.h"
+#include "content/public/browser/site_instance.h"
 #include "extensions/browser/api/offscreen/lifetime_enforcer_factories.h"
 #include "extensions/browser/api/offscreen/offscreen_document_lifetime_enforcer.h"
 #include "extensions/browser/extension_registry_factory.h"
