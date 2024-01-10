@@ -29,7 +29,6 @@
 #include "third_party/blink/renderer/core/css/css_property_names.h"
 #include "third_party/blink/renderer/core/css/css_property_value.h"
 #include "third_party/blink/renderer/core/css/parser/css_parser_mode.h"
-#include "third_party/blink/renderer/core/css/property_set_css_style_declaration.h"
 #include "third_party/blink/renderer/platform/heap/persistent.h"
 #include "third_party/blink/renderer/platform/wtf/casting.h"
 #include "third_party/blink/renderer/platform/wtf/text/wtf_string.h"
@@ -41,6 +40,7 @@ class CSSStyleDeclaration;
 class ExecutionContext;
 class ImmutableCSSPropertyValueSet;
 class MutableCSSPropertyValueSet;
+class PropertySetCSSStyleDeclaration;
 class StyleSheetContents;
 enum class CSSValueID;
 enum class SecureContextMode;
