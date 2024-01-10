@@ -12,6 +12,9 @@
 
 namespace blink {
 
+class ImageRecord;
+class TextRecord;
+
 // LargestContentfulPaintCalculator is responsible for tracking the largest
 // image paint and the largest text paint and notifying WindowPerformance
 // whenever a new LatestLargestContentfulPaint entry should be dispatched.
