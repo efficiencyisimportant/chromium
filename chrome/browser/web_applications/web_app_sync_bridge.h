@@ -15,11 +15,11 @@
 #include "build/build_config.h"
 #include "chrome/browser/web_applications/mojom/user_display_mode.mojom.h"
 #include "chrome/browser/web_applications/web_app.h"
-#include "chrome/browser/web_applications/web_app_command_scheduler.h"
 #include "chrome/browser/web_applications/web_app_constants.h"
 #include "chrome/browser/web_applications/web_app_registrar.h"
 #include "components/sync/model/entity_change.h"
 #include "components/sync/model/model_type_sync_bridge.h"
+#include "components/webapps/browser/install_result_code.h"
 #include "components/webapps/browser/uninstall_result_code.h"
 #include "third_party/abseil-cpp/absl/types/optional.h"
 
@@ -48,6 +48,7 @@ class AbstractWebAppDatabaseFactory;
 class AppLock;
 class ScopedRegistryUpdate;
 class WebAppCommandManager;
+class WebAppCommandScheduler;
 class WebAppDatabase;
 class WebAppRegistryUpdate;
 class WebAppInstallManager;
