@@ -3241,7 +3241,11 @@ bool RenderProcessHostImpl::IsPdf() {
   return !!(flags_ & RenderProcessFlags::kPdf);
 }
 
-StoragePartitionImpl* RenderProcessHostImpl::GetStoragePartition() {
+StoragePartition* RenderProcessHostImpl::GetStoragePartition() {
+  return GetStoragePartitionImpl();
+}
+
+StoragePartitionImpl* RenderProcessHostImpl::GetStoragePartitionImpl() {
   // TODO(https://crbug.com/1382971): Remove the `CHECK` after the ad-hoc
   // debugging is no longer needed to investigate the bug.
   CHECK(!!storage_partition_impl_);

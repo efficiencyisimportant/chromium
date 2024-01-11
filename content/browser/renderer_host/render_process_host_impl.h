@@ -34,7 +34,6 @@
 #include "content/browser/child_process_launcher.h"
 #include "content/browser/renderer_host/media/aec_dump_manager_impl.h"
 #include "content/browser/renderer_host/render_process_host_internal_observer.h"
-#include "content/browser/storage_partition_impl.h"
 #include "content/browser/tracing/tracing_service_controller.h"
 #include "content/common/child_process.mojom.h"
 #include "content/common/content_export.h"
@@ -155,6 +154,7 @@ class RenderWidgetHelper;
 class SiteInfo;
 class SiteInstance;
 class SiteInstanceImpl;
+class StoragePartitionImpl;
 struct ChildProcessTerminationInfo;
 struct GlobalRenderFrameHostId;
 
@@ -230,7 +230,7 @@ class CONTENT_EXPORT RenderProcessHostImpl
   bool IsForGuestsOnly() override;
   bool IsJitDisabled() override;
   bool IsPdf() override;
-  StoragePartitionImpl* GetStoragePartition() override;
+  StoragePartition* GetStoragePartition() override;
   bool Shutdown(int exit_code) override;
   bool ShutdownRequested() override;
   bool FastShutdownIfPossible(size_t page_count = 0,
@@ -352,6 +352,8 @@ class CONTENT_EXPORT RenderProcessHostImpl
   // ChildProcessLauncher::Client implementation.
   void OnProcessLaunched() override;
   void OnProcessLaunchFailed(int error_code) override;
+
+  StoragePartitionImpl* GetStoragePartitionImpl();
 
   // Call this function when it is evident that the child process is actively
   // performing some operation, for example if we just received an IPC message.
